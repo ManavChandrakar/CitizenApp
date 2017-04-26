@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <!-- header -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp" >
+
+        <!-- payment mode Image -->
+
+        <ImageView
+            android:id="@+id/paynimo_list_card_icon"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/paynimo_pm_default_icon" />
+
+        <!-- right arrow Image -->
+
+
+            <!-- label -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@+id/paynimo_list_vault_cancel"
+            android:layout_toRightOf="@+id/paynimo_list_card_icon"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <com.paynimo.android.payment.CustomTextView
+                android:id="@+id/paynimo_list_card_bankname_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dfd"
+                android:textColor="#393939"
+                android:textSize="@dimen/paynimo_textView_textSize_normal"
+                android:textStyle="bold" />
+
+            <com.paynimo.android.payment.CustomTextView
+                android:id="@+id/paynimo_list_card_cardno_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="dfd"
+                android:textColor="#393939"
+                android:textSize="@dimen/paynimo_textView_textSize_small" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/paynimo_list_vault_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/paynimo_cancel_icon" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/paynimo_roundedViewBorderColor" />
+    <!-- content -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical" >
+
+        <com.paynimo.android.payment.CustomTextView
+            android:id="@+id/paynimo_list_card_field_label"
+            android:textSize="@dimen/paynimo_textView_textSize_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="#000000" />
+
+        <com.paynimo.android.payment.CustomEditText
+            android:id="@+id/paynimo_card_vault_et_cvv"
+            android:textSize="@dimen/paynimo_textView_textSize_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:background="#00000000"
+            android:gravity="center_horizontal"
+            android:hint="@string/paynimo_cc_verification_hint"
+            android:inputType="numberPassword"
+            android:maxLength="6" />
+    </LinearLayout>
+
+    <!-- footer -->
+
+    <com.paynimo.android.payment.CustomButton
+        android:id="@+id/paynimo_card_vault_pay_btn"
+        style="@style/ButtonPaynimo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@color/paynimo_buttonDefaultColor"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:text="QuickPay"
+        android:textStyle="bold" />
+
+</LinearLayout>

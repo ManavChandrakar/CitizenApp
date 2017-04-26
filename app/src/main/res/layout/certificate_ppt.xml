@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Assessment No. / Door No."
+            android:textSize="20sp"
+            android:textColor="@color/appcolor"
+            android:layout_margin="10dp"
+
+            />
+
+        <EditText
+            android:id="@+id/assesno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:layout_marginRight="10dp"
+            android:singleLine="true"
+            android:background="@drawable/edittext_bg"
+            android:hint="Enter assessment no or door number"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/btnsubmit"
+            android:text="SUBMIT"
+            android:textColor="#ffffff"
+            android:background="@color/appcolor"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

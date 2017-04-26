@@ -1,0 +1,107 @@
+<resources>
+
+    <string name="paynimo_trigger_default">Pay</string>
+    <!-- AlertDialog connection Error -->
+    <string name="paynimo_alert_dialog_connection_error_heading">No Internet Connection</string>
+    <string name="paynimo_connection_error">Unable to load content. Check your network connection.</string>
+    <!-- Loader text -->
+    <string name="paynimo_loader_label">Please wait...</string>
+    <!-- Font Style Path -->
+    <string name="paynimo_fontpath">fonts/roboto_regular_webfont.ttf</string>
+    <string name="paynimo_rupee_fontpath">fonts/rupee_foradian.ttf</string>
+    <!-- REQUESTED_PAYMENT_MODE -->
+    <string name="paynimo_requested_payment_method_error">Please Change Your Requested Payment Mode</string>
+
+    <!-- PAYMENT MODES -->
+    <string name="paynimo_payment_mode_label">PAYMENT OPTIONS</string>
+    <string name="paynimo_payment_mode_amount_label">Amount ` </string>
+    <string name="paynimo_alert_delete_card">Are you sure you want to delete this card?</string>
+    <string name="paynimo_alert_yes">Yes</string>
+    <string name="paynimo_alert_no">No</string>
+
+    <!-- Card -->
+    <string name="paynimo_cc_number_label">Card number</string>
+    <string name="paynimo_cc_number_hint">CARD NUMBER</string>
+    <string name="paynimo_cc_expdate_label">Expiry date</string>
+    <string name="paynimo_cc_date_hint">MM/YY</string>
+    <string name="paynimo_cc_date_separator">/</string>
+    <string name="paynimo_cc_verification_label">Verification number</string>
+    <string name="paynimo_cc_verification_hint">CVV </string>
+    <string name="paynimo_cc_holder_name_hint">CARD HOLDER NAME</string>
+    <string name="paynimo_cc_holder_name_label">Card holder name</string>
+    <string name="paynimo_cc_radio_fresh_label">Pay with another card</string>
+    <string name="paynimo_cc_radio_vault_label">Express pay with your saved cards</string>
+    <string name="paynimo_cc_spinner_label">Select your preferred card for this payment</string>
+    <string name="paynimo_cc_checkbox_label">Remember this card for the next time</string>
+    <string name="paynimo_cc_user_message_label">Your information is secured using industry standard encryption</string>
+    <string name="paynimo_cc_field_info_label">Please enter  available fields of the  Card </string>
+    <string name="paynimo_cc_vault_field_info_label">Please enter CVV if available on Card </string>
+     <string name="paynimo_cc_checkbox_si_label">Register for Auto-Debit</string>
+    <string name="paynimo_cc_si_view_detail_label">View SI Details</string>
+    <string name="paynimo_cc_si_validation_error_message">Please submit all SI required fields</string>
+    
+
+    <!-- <string name="paynimo_cc_btn_paywith_otp_label">Pay using OTP</string> -->
+
+    <string name="paynimo_cc_checkbox_auto_sms_label">Auto SMS Generation</string>
+    <string name="paynimo_cc_btn_paywith_otp_label">Pay</string>
+    <string name="paynimo_cc_btn_paywith_3d_label">Pay using 3D Secure</string>
+    <string name="paynimo_card_type_v_label">Vaulted Cards</string>
+    <string name="paynimo_card_type_n_label">New Cards</string>
+    <string name="paynimo_card_title_label">CARDS</string>
+    <string name="paynimo_card_v_heading_label_many">SELECT FROM REGISTERED CARDS</string>
+    <string name="paynimo_card_v_heading_label_single">SELECT REGISTERED CARD</string>
+    <string name="paynimo_card_scan_overlay_note">Card image not captured for security purpose.</string>
+    <string name="paynimo_dialog_vaulted_field_card">Enter CVV</string>
+    <string name="paynimo_dialog_vaulted_field_imps">Enter OTP</string>
+    <string name="paynimo_cc_invalid_cvv">Incorrect CVV</string>
+
+    <!-- IMPS -->
+    <string name="paynimo_imps_vaulted_otp_hint">OTP</string>
+    <string name="paynimo_imps_title_label">IMPS</string>
+    <string name="paynimo_imps_mobile_number_label">Mobile number</string>
+    <string name="paynimo_imps_mobile_number_hint">Your registered mobile number</string>
+    <string name="paynimo_imps_mmid_label">MMID</string>
+    <string name="paynimo_imps_mmid_hint">Your Mobile Money Identifier</string>
+    <string name="paynimo_imps_otp_label">OTP</string>
+    <string name="paynimo_imps_otp_hint">Your One Time Password</string>
+    <string name="paynimo_invalid_mobilenumberMSG">Mobile no entered is not valid</string>
+    <string name="paynimo_invalid_mmidMSG">MMID entered is not valid</string>
+    <string name="paynimo_imps_trigger_btn_default">@string/paynimo_trigger_default</string>
+    <string name="paynimo_imps_type_v_label">Vaulted IMPS</string>
+    <string name="paynimo_imps_type_n_label">New IMPS</string>
+    <string name="paynimo_imps_v_heading_label">SELECT REGISTERED IMPS</string>
+    <string name="paynimo_cc_invalid_otp">Incorrect OTP</string>
+
+    <!-- NETBANKING -->
+    <string name="paynimo_netbanking_spinner_label">Select your preferred bank for this payment</string>
+    <string name="paynimo_netbanking_btn_pay_label">Pay</string>
+
+    <!-- OTP READ -->
+    <string name="paynimo_otp_otp_hint">Enter OTP</string>
+    <string name="paynimo_otp_authorize_btn_text">Authorize</string>
+    <string name="paynimo_otp_3dsecure_user_hint">Dont Want to Wait ..</string>
+    <string name="paynimo_otp_3dsecure_btn_text">Authorize with 3D Secure</string>
+
+    <!-- Custom Dialog -->
+    <string name="paynimo_custom_dialog_ok_label">Ok</string>
+    <string name="paynimo_custom_dialog_cancel_label">Cancel</string>
+    <string name="paynimo_custom_dialog_title_new_incoming_message">New Message ...</string>
+    <string name="paynimo_custom_dialog_title_payment_error">Something went  wrong ...</string>
+
+    <!-- Back Press Dialog -->
+    <string name="paynimo_back_press_dialog_title">Confirm Abort...</string>
+    <string name="paynimo_back_press_dialog_message">Are you sure you want abort this?</string>
+    <string name="paynimo_back_press_dialog_ok_label">YES</string>
+    <string name="paynimo_back_press_dialog_cancel_label">NO</string>
+
+    <!-- WEBSERVICE Errors -->
+    <string name="paynimo_webservice_request_not_completed_error">Unable to retrieve data. Please check your Network Connection or server may be down ..</string>
+
+    <!-- Validation Error Messages -->
+    <string name="paynimo_invalidMSG">Invalid Entry ...</string>
+    <string name="paynimo_notAllowedCardMSG">Invalid Card ..</string>
+    <string name="paynimo_emptyMSG">Empty value ..</string>
+    <string name="paynimo_payments_error">There was an error. Please try with another Payment Options.</string>
+
+</resources>

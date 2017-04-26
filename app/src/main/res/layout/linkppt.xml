@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_property_tax"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+
+    <include layout="@layout/toolbar_layout"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/result_form"
+        android:layout_marginTop="8dp"
+       >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="6dp"
+                android:text="Search By"
+                android:id="@+id/search_by_txt"
+                android:textSize="16sp"
+                android:textColor="@color/appcolor"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="6dp"
+                android:text="Assessment No."
+                android:id="@+id/search_by"
+                android:background="@drawable/edittext_bg"
+                android:drawableRight="@drawable/ic_arrow_down"
+                android:textSize="16sp"
+                android:textColor="@color/appcolor"
+                />
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search"
+            android:background="@drawable/edittext_bg"
+            android:id="@+id/search"
+
+
+            android:textSize="18sp"
+            android:paddingLeft="6dp"
+            android:paddingTop="6dp"
+            android:paddingRight="6dp"
+            android:paddingBottom="4dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:id="@+id/button_submit"
+            android:backgroundTint="@color/appcolor"
+            android:textColor="#fff"
+            android:textSize="16sp"
+
+
+            android:paddingLeft="10dp"
+            android:gravity="center_horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingRight="10dp"
+            android:background="@color/colorAccent"
+            android:layout_marginTop="8dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="10dp"
+            android:background="#eee"
+            android:layout_marginTop="10dp"
+
+            android:layout_centerHorizontal="true"
+            android:padding="0dp"
+            />
+
+    </LinearLayout>
+</LinearLayout>

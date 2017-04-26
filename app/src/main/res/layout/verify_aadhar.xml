@@ -1,0 +1,107 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pris.citizenapp.login.Otp"
+    android:background="#fff">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/splash"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/ic_launcher" />
+
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/splash"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp">
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter Aadhar Number"
+            android:id="@+id/otptxt"
+            android:textColor="@color/appcolor"
+            android:paddingTop="6dp"
+            android:paddingBottom="2dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/aadhar"
+
+            android:inputType="phone"
+            android:background="@drawable/edittext_bg"
+            android:textSize="18sp"
+            android:paddingLeft="4dp"
+            android:paddingTop="6dp"
+            android:maxLength="12"
+            android:paddingRight="6dp"
+            android:paddingBottom="4dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Verify Aadhar"
+            android:id="@+id/button_otp"
+
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            android:paddingLeft="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="10dp"
+            android:background="@color/appcolor"
+            android:layout_marginTop="16dp" />
+
+<!--
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Verify Aadhar Number"
+            android:id="@+id/button_resend"
+            android:gravity="center_horizontal"
+
+
+            android:textColor="@color/appcolor"
+            android:textSize="16sp"
+
+            android:paddingLeft="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="2dp"
+            android:paddingRight="10dp"
+
+            android:layout_marginTop="16dp" />-->
+    </LinearLayout>
+
+    <!--<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/imageView"
+        android:layout_alignParentBottom="true"
+
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_water" />
+-->
+
+</RelativeLayout>

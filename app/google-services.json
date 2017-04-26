@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "341361948388",
+    "project_id": "goolesigninentro"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341361948388:android:c96acaf0088f707f",
+        "android_client_info": {
+          "package_name": "com.pris.citizenapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341361948388-vpbnd5715npl5tqt20i0c3391jtdl4ul.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pris.citizenapp",
+            "certificate_hash": "4ba4d646b2a2c9fdc371a9075fd8f3cae4728bf5"
+          }
+        },
+        {
+          "client_id": "341361948388-a0sqp5oftcrj44mar9cd7jrufm3grtth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC94nKjiHbv0kBrvmiSQrTrXLU77NAty2M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

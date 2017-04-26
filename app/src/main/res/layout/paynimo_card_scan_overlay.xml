@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="horizontal"
+    android:padding="2dp" >
+
+    <com.paynimo.android.payment.CustomTextView
+        style="@style/TextViewPaynimo"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#000000"
+        android:text="@string/paynimo_card_scan_overlay_note"
+        android:textColor="#ffffff"
+        android:textStyle="normal" />
+
+</LinearLayout>

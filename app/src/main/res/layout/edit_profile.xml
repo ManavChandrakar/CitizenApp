@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#dfdfdf"
+    android:layout_height="match_parent">
+
+   <!-- <include layout="@layout/toolbar_layout"
+        android:id="@+id/include" />-->
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none"
+        android:fillViewport="true"
+        android:layout_below="@+id/include"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name *"
+                android:textSize="20sp"
+                android:textColor="@color/appcolor"
+                android:layout_margin="10dp"
+
+                />
+
+            <EditText
+                android:id="@+id/Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:singleLine="true"
+                android:background="@drawable/edittext_bg"
+                android:hint="Enter Full Name"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email *"
+                android:textSize="20sp"
+                android:textColor="@color/appcolor"
+                android:layout_margin="10dp"
+
+                />
+
+
+
+            <EditText
+
+                android:id="@+id/mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="Enter mailid"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mobile No *"
+                android:textSize="20sp"
+                android:textColor="@color/appcolor"
+                android:layout_margin="10dp"
+
+                />
+
+
+
+            <EditText
+
+                android:id="@+id/Number"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:maxLength="10"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:editable="false"
+                android:background="@drawable/edittext_bg"
+                android:singleLine="true"
+                android:hint="Enter Mobile Number"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aadhar Number"
+                android:textSize="20sp"
+                android:textColor="@color/appcolor"
+                android:layout_margin="10dp"
+
+                />
+
+            <EditText
+
+                android:id="@+id/AadharNumber"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:maxLength="12"
+                android:singleLine="true"
+                android:background="@drawable/edittext_bg"
+                android:hint="Enter Aadhar Number"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/appcolor"
+                android:textSize="20sp"
+                />
+
+            <RadioGroup
+                android:id="@+id/radioSex"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/male"
+                    app:buttonTint="@color/appcolor"
+                    android:checked="true"
+                    android:text="Male" />
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Female"
+                    app:buttonTint="@color/appcolor"
+                    android:text="Female"
+                    />
+
+            </RadioGroup>
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="DOB"
+                android:textColor="@color/appcolor"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_ccd"
+                android:textColor="#333333"
+                android:hint="Date "
+                android:textSize="18sp"
+
+                android:background="@drawable/edittext_bg"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="District"
+                android:id="@+id/clickdis"
+                android:textSize="18sp"
+                android:textColor="@color/appcolor"
+                android:layout_marginTop="10dp"
+                android:hint="District"
+                android:drawableRight="@drawable/ic_arrow_down"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="District"
+                android:editable="false"
+                android:textSize="18sp"
+                android:id="@+id/district"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#000000"
+                android:drawablePadding="20dp"
+                android:background="@drawable/edittext_bg"
+                />
+
+            <TextView
+                android:id="@+id/clickdiv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Division"
+                android:textSize="18sp"
+                android:drawableRight="@drawable/ic_arrow_down"
+                android:textColor="@color/appcolor"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:id="@+id/division"
+                android:editable="false"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#000000"
+                android:hint="Mandal"
+                android:background="@drawable/edittext_bg"
+                android:drawablePadding="20dp"
+                />
+
+            <TextView
+                android:id="@+id/clickman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mandal"
+                android:textSize="18sp"
+                android:drawableRight="@drawable/ic_arrow_down"
+                android:textColor="@color/appcolor"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:id="@+id/Mandal"
+                android:editable="false"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#000000"
+                android:hint="Mandal"
+                android:background="@drawable/edittext_bg"
+                android:drawablePadding="20dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Panchayat"
+                android:id="@+id/clickpan"
+                android:textSize="18sp"
+                android:textColor="@color/appcolor"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:drawableRight="@drawable/ic_arrow_down"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:id="@+id/Panchayat"
+                android:layout_marginLeft="10dp"
+                android:editable="false"
+                android:textColor="#000000"
+                android:layout_marginBottom="60dp"
+                android:drawablePadding="20dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="Panchayat"
+                android:layout_marginRight="10dp"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textSize="18sp"
+        android:background="@color/appcolor"
+        android:text="SUBMIT"
+        android:textColor="#ffffff"
+        />
+</RelativeLayout>

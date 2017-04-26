@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="4dp"
+    android:background="#fff"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="4dp"
+
+        android:id="@+id/contact_view"
+        android:background="#ffffff">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Registered Mobile No"
+            android:id="@+id/dmobile_txt"
+            android:textColor="@color/appcolor"
+            android:paddingTop="6dp"
+            android:paddingBottom="2dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dmobile"
+             android:background="@drawable/edittext_bg"
+            android:inputType="phone"
+            android:textCursorDrawable="@null"
+            android:maxLength="10"
+            android:textSize="18sp"
+            android:paddingLeft="4dp"
+            android:paddingTop="6dp"
+            android:paddingRight="6dp"
+            android:paddingBottom="4dp" />
+
+
+
+    </LinearLayout>
+
+
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        xmlns:fresco="http://schemas.android.com/apk/res-auto"
+
+        >
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+            android:id="@+id/map" tools:context=".MapsActivity"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_height="180dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/map"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:padding="4dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Location"
+                    android:id="@+id/location_txt"
+                    android:textSize="12sp"
+                    android:layout_weight="2"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:id="@+id/location"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:paddingTop="2dp"
+                    android:layout_weight="1"
+                    android:paddingBottom="2dp"
+                    android:gravity="left" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="GPS Coordinates"
+                    android:id="@+id/gps_location"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12sp"  android:layout_weight="2"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:id="@+id/gps"
+                    android:textColor="#333"
+                    android:textSize="14sp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp" android:layout_weight="1"
+                    android:gravity="left" />
+
+            </LinearLayout>
+            </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/myrecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="10dp"
+            android:background="#efefef"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true"
+            android:padding="4dp"
+            />
+        </LinearLayout>
+    </ScrollView>

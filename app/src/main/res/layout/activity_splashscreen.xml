@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:paddingTop="8dp"
+
+    tools:context=".entrolab.SplashScreen"
+    android:background="#ffffff">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/govt_header"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="match_parent"
+
+                android:id="@+id/cbn"
+                android:src="@drawable/cbn"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Sri Nara Chandrababu Naidu"
+                android:textSize="12sp"
+                android:textColor="@color/appcolor"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Hon'ble Chief Minister of Andhra Pradesh"
+                android:textSize="8sp"
+                android:textColor="#444"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="match_parent"
+
+                android:id="@+id/minister"
+                android:src="@mipmap/ic_launcher"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Sri Nara Lokesh"
+                android:textSize="12sp"
+                android:textColor="@color/appcolor"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Hon'ble Minister of PR   RD"
+                android:textSize="8sp"
+                android:textColor="#444"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:paddingTop="40dp"
+        android:layout_below="@id/govt_header"
+
+
+        android:gravity="center_horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/camera"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/ic_panchayatlogo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PRIS"
+            android:id="@+id/bhimavaram"
+
+            android:layout_below="@+id/camera"
+            android:layout_centerHorizontal="true"
+            android:textSize="28sp"
+
+            android:textColor="@color/appcolor"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="4dp"
+            android:textIsSelectable="false"
+            android:gravity="center_horizontal" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/govt_logo"
+            android:src="@drawable/ic_aplogo"
+            android:layout_below="@+id/bhimavaram"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Panchayat Raj Department"
+            android:id="@+id/pd"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Government of AndhraPradesh"
+            android:id="@+id/apgovt"
+            android:textColor="#333"
+            android:textSize="12sp"
+            />
+    </LinearLayout>
+
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/bg"/>
+       <!-- android:src="@drawable/bg"-->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="App By"
+        android:id="@+id/textView3"
+        android:textColor="#999"
+        android:textSize="8sp"
+        android:layout_above="@+id/imageView3"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:src="@drawable/ic_elabs"
+        />
+</RelativeLayout>
+

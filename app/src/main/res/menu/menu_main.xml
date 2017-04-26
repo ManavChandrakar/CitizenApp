@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<item
+    android:id="@+id/home"
+    android:icon="@drawable/ic_home"
+    android:title="Home"
+    app:showAsAction="always">
+    </item>
+
+    <item
+        android:id="@+id/notification"
+        android:icon="@drawable/ic_ring"
+        android:title="Notification"
+        app:showAsAction="always">
+    </item>
+
+    <item
+        android:id="@+id/linkppt"
+        android:icon="@drawable/ic_push_pin"
+        android:title="Link Property"
+        app:showAsAction="always"
+        >
+    </item>
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_account"
+        android:title="Account"
+        app:showAsAction="always">
+    </item>
+
+</menu>

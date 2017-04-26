@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="4dp"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/contact_view"
+        android:paddingTop="2dp"
+        android:layout_marginBottom="4dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_notification"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/addsplaceholder"
+                android:scaleType="centerCrop"
+                />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Title of Notification goes here"
+                android:gravity="center_vertical"
+                android:textColor="@color/appcolor"
+                android:textSize="18sp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:background="#fff"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
+
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Description is generally typed here, lets check how it looks in 2 lines"
+                android:gravity="center_vertical"
+                android:textColor="#333"
+                android:textSize="14sp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_below="@id/title"
+                android:maxLines="2"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center_horizontal"
+                    android:background="#fafafa"
+                    android:layout_margin="1dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:id="@+id/link"
+                        android:drawableLeft="@drawable/ic_link"
+                        android:drawablePadding="8dp"
+
+                        android:text="Open Link"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center_horizontal"
+                    android:layout_margin="1dp"
+                    android:background="#fafafa"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:id="@+id/download"
+                        android:drawableLeft="@drawable/ic_file_download"
+                        android:drawablePadding="8dp"
+
+                        android:text="Download"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/timestamp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/description"
+                android:text="Nov 12 15:09"
+                android:textColor="#999"
+                android:textSize="12sp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingRight="8dp"
+                android:visibility="visible"
+                android:paddingLeft="10dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dfdfdf">
+
+    <include layout="@layout/toolbar_layout"/>
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_above="@+id/tv"
+
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_round"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Panchayti Raj"
+            android:textSize="10sp"
+            android:gravity="center"
+            />
+
+    </LinearLayout>-->
+
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/number"
+        android:textSize="20sp"
+        android:textColor="@color/appcolor"
+
+        android:gravity="center"
+        android:typeface="sans"
+        android:text="Panchayat Citizen Login"
+        />
+
+    <LinearLayout
+        android:id="@+id/number"
+        style="@style/edittext_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_above="@+id/pass"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="#ffffff">
+
+
+            <EditText
+                android:id="@+id/editnum"
+                style="@style/textinputlayoutedittext_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:gravity="center"
+                android:singleLine="true"
+                android:inputType="number"
+                android:maxLength="10"
+                android:digits="0123456789"
+                android:hint="Mobile Number/Aadhar Number">
+
+            </EditText>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/pass"
+        style="@style/edittext_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_above="@+id/register"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="#ffffff">
+
+
+        <EditText
+            android:id="@+id/editpass"
+            style="@style/textinputlayoutedittext_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:gravity="center"
+            android:singleLine="true"
+            android:inputType="numberPassword"
+            android:hint="Password">
+
+        </EditText>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_above="@+id/loginbtn"
+
+        />
+
+    <TextView
+        android:id="@+id/forgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textSize="18sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_above="@+id/loginbtn"
+
+        />
+
+   <Button
+       android:id="@+id/loginbtn"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="10dp"
+       android:textSize="20sp"
+       android:layout_centerInParent="true"
+       android:text="LOGIN"
+       android:textColor="#ffffff"
+       android:background="@color/appcolor"
+       />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OR SIGNIN WITH "
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        />
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+
+<ImageButton
+    android:id="@+id/googleLogin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+   android:background="#ffffff"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:src="@mipmap/ic_launcher"/>
+
+      <View
+          android:layout_width="15dp"
+          android:layout_height="0dp"/>
+
+    <ImageButton
+        android:id="@+id/facebookLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="#ffffff"
+        android:src="@mipmap/ic_launcher"/>
+      </LinearLayout>
+
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center"
+         android:textSize="11sp"
+         android:text="App By"
+         android:layout_marginTop="20dp"
+         />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_launcher_round"/>
+</LinearLayout>
+  <!--  <TextView
+        android:id="@+id/error"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="#ffffff"
+        android:text="error visibility"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:background="#000000"
+       android:layout_alignParentBottom="true"
+        />-->
+</RelativeLayout>
