@@ -36,6 +36,7 @@ public class CheckoutActivity extends AppCompatActivity {
         checkout.setConsumerAccountNo ("");
         checkout.addCartItem("test","1.00","0.0","0.0","","tax","propertytax","www.pris.gov.in");
 
+        //Testing the push
   /*      checkout.setTransactionMerchantInitiated("Y");
         checkout.setPaymentInstrumentIdentifier("4012001037141112");
         checkout.setPaymentInstrumentExpiryMonth("12");
