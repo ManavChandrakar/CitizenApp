@@ -1,6 +1,7 @@
 package com.pris.citizenapp.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -35,7 +36,7 @@ public class GrevienceDetailAdapter extends RecyclerView.Adapter<GrevienceDetail
         session = new SessionManager(fm);
         try {
             context = fm;
-        }
+           }
         catch (NullPointerException e){
             e.printStackTrace();
         }
@@ -57,6 +58,7 @@ public class GrevienceDetailAdapter extends RecyclerView.Adapter<GrevienceDetail
 
     @Override
     public void onBindViewHolder(FeedViewHolder holder, int position) {
+        Typeface head = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto_Light.ttf");
 
         Replies ci=contactList.get(position);
 
@@ -95,6 +97,12 @@ public class GrevienceDetailAdapter extends RecyclerView.Adapter<GrevienceDetail
 
         holder.repdate.setText(time);
 
+
+        holder.tv1.setTypeface(head);
+        holder.tv2.setTypeface(head);
+        holder.tv3.setTypeface(head);
+        holder.tv4.setTypeface(head);
+
     }
 
     @Override
@@ -104,7 +112,7 @@ public class GrevienceDetailAdapter extends RecyclerView.Adapter<GrevienceDetail
 
     public static class FeedViewHolder extends RecyclerView.ViewHolder {
 
-        protected TextView reply;
+        protected TextView reply,tv1,tv2,tv3,tv4;
         protected TextView repname;
         protected TextView repdate;
         protected TextView repstatus;
@@ -116,6 +124,11 @@ public class GrevienceDetailAdapter extends RecyclerView.Adapter<GrevienceDetail
             repname=(TextView)v.findViewById(R.id.repname);
             repdate=(TextView)v.findViewById(R.id.repDate);
             repstatus=(TextView)v.findViewById(R.id.repstatus);
+            tv1=(TextView)v.findViewById(R.id.tv1);
+            tv2=(TextView)v.findViewById(R.id.tv2);
+            tv3=(TextView)v.findViewById(R.id.tv3);
+            tv4=(TextView)v.findViewById(R.id.tv4);
+
         }
     }
 }

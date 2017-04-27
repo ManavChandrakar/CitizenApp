@@ -3,6 +3,7 @@ package com.pris.citizenapp.login;
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -59,8 +60,10 @@ public class Register extends AppCompatActivity implements EasyPermissions.Permi
     private SessionManager session;
     MaterialDialog progress;
     MaterialDialog dialog;
+    TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7;
 
-    AppCompatRadioButton radiores;
+
+    AppCompatRadioButton radiores,male,female;
     EditText name,mail,number,aadhar,district,division,mandal,panchayat;
     RadioGroup radioGroup;
     String gender="1";
@@ -85,9 +88,30 @@ public class Register extends AppCompatActivity implements EasyPermissions.Permi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.register);
+       /* toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);*/
+        setTitle("Register");
+
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
+
 
         //session
         session = new SessionManager(Register.this);
+
+        tv1=(TextView)findViewById(R.id.tv1) ;
+        tv2=(TextView)findViewById(R.id.tv2);
+        tv3=(TextView)findViewById(R.id.tv3);
+        tv4=(TextView)findViewById(R.id.tv4);
+        tv6=(TextView)findViewById(R.id.tv6);
+        tv7=(TextView)findViewById(R.id.tv7);
+        male=(AppCompatRadioButton)findViewById(R.id.male);
+        female=(AppCompatRadioButton)findViewById(R.id.Female);
+
+
+
+
+
 
        /* if(session.isLoggedIn()){
 
@@ -107,10 +131,7 @@ public class Register extends AppCompatActivity implements EasyPermissions.Permi
         }*/
 
 
-        setContentView(R.layout.register);
-       /* toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);*/
-        setTitle("Register");
+
         // getSupportActionBar().setDisplayShowTitleEnabled(true);
         date_cdd = (TextView) findViewById(R.id.date_ccd);
         radioGroup = (RadioGroup) findViewById(R.id.radioSex);
@@ -128,6 +149,21 @@ public class Register extends AppCompatActivity implements EasyPermissions.Permi
         ClickDiv = (TextView) findViewById(R.id.clickdiv);
         ClickMan = (TextView) findViewById(R.id.clickman);
         ClickPan = (TextView) findViewById(R.id.clickpan);
+
+
+        tv1.setTypeface(head);
+        tv2.setTypeface(head);
+        tv3.setTypeface(head);
+        tv4.setTypeface(head);
+        tv6.setTypeface(head);
+        tv7.setTypeface(head);
+        male.setTypeface(head);
+        female.setTypeface(head);
+        ClickDis.setTypeface(head);
+        ClickDiv.setTypeface(head);
+        ClickMan.setTypeface(head);
+        ClickPan.setTypeface(head);
+        submit.setTypeface(head);
 
 
         //initialsing the dropdown
@@ -468,6 +504,11 @@ public class Register extends AppCompatActivity implements EasyPermissions.Permi
 
             }
 
+            else
+            {
+                Toast.makeText(Register.this,"Make sure you have internet connection",Toast.LENGTH_LONG).show();
+            }
+
         }
 
         catch (Exception e)
@@ -798,7 +839,7 @@ public class Register extends AppCompatActivity implements EasyPermissions.Permi
 
                            // session.createLoginSession(result);
 
-                        Intent intent = new Intent(Register.this, Otp.class);
+                        Intent intent = new Intent(Register.this, RegisterOtp.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);

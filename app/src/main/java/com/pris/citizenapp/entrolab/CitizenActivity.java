@@ -1,6 +1,7 @@
 package com.pris.citizenapp.entrolab;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -59,6 +60,7 @@ public class CitizenActivity extends Fragment {
     ViewPager viewPager;
     CustomSwipeAdapter customSwipeAdapter;
     ArrayList<String>all;
+    TextView tv1,tv2,tv3,tv4,tv01,tv02,tv03,tv04,tv05,tv06,tv07,tv08,tv09,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18;
 
     @Nullable
     @Override
@@ -70,15 +72,60 @@ public class CitizenActivity extends Fragment {
     public void onViewCreated(View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         session=new SessionManager(view.getContext());
+        Typeface head = Typeface.createFromAsset(view.getContext().getAssets(), "fonts/Roboto_Light.ttf");
+
         toolbar=(Toolbar)view.findViewById(R.id.toolbar);
+        tv2=(TextView)view.findViewById(R.id.tv2);
+        tv3=(TextView)view.findViewById(R.id.tv3);
+        tv4=(TextView)view.findViewById(R.id.tv4);
+        tv01=(TextView)view.findViewById(R.id.tv01);
+        tv02=(TextView)view.findViewById(R.id.tv02);
+        tv03=(TextView)view.findViewById(R.id.tv03);
+        tv04=(TextView)view.findViewById(R.id.tv04);
+        tv05=(TextView)view.findViewById(R.id.tv05);
+        tv06=(TextView)view.findViewById(R.id.tv06);
+        tv07=(TextView)view.findViewById(R.id.tv07);
+        tv08=(TextView)view.findViewById(R.id.tv08);
+        tv09=(TextView)view.findViewById(R.id.tv09);
+        tv10=(TextView)view.findViewById(R.id.tv10);
+        tv11=(TextView)view.findViewById(R.id.tv11);
+        tv12=(TextView)view.findViewById(R.id.tv12);
+        tv13=(TextView)view.findViewById(R.id.tv13);
+        tv14=(TextView)view.findViewById(R.id.tv14);
+        tv15=(TextView)view.findViewById(R.id.tv15);
+        tv16=(TextView)view.findViewById(R.id.tv16);
+        tv17=(TextView)view.findViewById(R.id.tv17);
+        tv18=(TextView)view.findViewById(R.id.tv18);
+
+        tv2.setTypeface(head);
+        tv3.setTypeface(head);
+        tv4.setTypeface(head);
+        tv01.setTypeface(head);
+        tv02.setTypeface(head);
+        tv03.setTypeface(head);
+        tv04.setTypeface(head);
+        tv05.setTypeface(head);
+        tv06.setTypeface(head);
+        tv07.setTypeface(head);
+        tv08.setTypeface(head);
+        tv09.setTypeface(head);
+        tv10.setTypeface(head);
+        tv11.setTypeface(head);
+        tv12.setTypeface(head);
+        tv13.setTypeface(head);
+        tv14.setTypeface(head);
+        tv15.setTypeface(head);
+        tv16.setTypeface(head);
+        tv17.setTypeface(head);
+        tv18.setTypeface(head);
 
 
         //just for testing
         all=new ArrayList<String>();
-        all.add("http://pris.ap.gov.in/mobile/house_tag/files/11nhvhP.jpg");
-        all.add("http://pris.ap.gov.in/mobile/house_tag/files/11nhvhP.jpg");
-        all.add("http://pris.ap.gov.in/mobile/house_tag/files/11nhvhP.jpg");
-        all.add("http://pris.ap.gov.in/mobile/house_tag/files/11nhvhP.jpg");
+        all.add("http://pris.ap.gov.in/files/test.png");
+        all.add("http://pris.ap.gov.in/files/test.png");
+        all.add("http://pris.ap.gov.in/files/test.png");
+        all.add("http://pris.ap.gov.in/files/test.png");
         //
 
 
@@ -98,6 +145,8 @@ public class CitizenActivity extends Fragment {
         layout.setVisibility(View.VISIBLE);
         name=(TextView) view.findViewById(R.id.tooltext);
         panchaayatname=(TextView)view.findViewById(R.id.panchaayatname);
+        name.setTypeface(head);
+        panchaayatname.setTypeface(head);
         //set panchayat name
         panchaayatname.setText(session.getStrVal("panchayat_name"));
         panchaayatname.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);

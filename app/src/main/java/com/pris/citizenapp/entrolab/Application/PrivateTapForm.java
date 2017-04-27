@@ -1,6 +1,7 @@
 package com.pris.citizenapp.entrolab.Application;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -41,7 +42,7 @@ public class PrivateTapForm extends AppCompatActivity {
     Toolbar toolbar;
     EditText assessNo,connecttion;
     Button button;
-    TextView noofconn;
+    TextView noofconn,tv1;
     public MaterialDialog popAlert;
     public MaterialDialog progDialog;
     public SessionManager session;
@@ -53,11 +54,17 @@ public class PrivateTapForm extends AppCompatActivity {
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Private Tap Form");
         setSupportActionBar(toolbar);
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
+
         session=new SessionManager(this);
         noofconn=(TextView)findViewById(R.id.noofconn);
+        noofconn.setTypeface(head);
+        tv1=(TextView)findViewById(R.id.tv1);
+        tv1.setTypeface(head);
         assessNo=(EditText)findViewById(R.id.assesno);
         connecttion=(EditText)findViewById(R.id.connection);
         button=(Button)findViewById(R.id.btnsubmit);
+        button.setTypeface(head);
         al=new ArrayList<String>();
         al.add("1");
         al.add("2");

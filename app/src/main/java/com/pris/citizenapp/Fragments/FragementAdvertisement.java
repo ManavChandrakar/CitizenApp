@@ -1,6 +1,7 @@
 package com.pris.citizenapp.Fragments;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -65,6 +66,8 @@ public class FragementAdvertisement extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         session = new SessionManager(view.getContext());
 
+        Typeface head = Typeface.createFromAsset(view.getContext().getAssets(), "fonts/Roboto_Light.ttf");
+
         progress = new MaterialDialog.Builder(view.getContext())
                 .title("Loading...")
                 .content("...")
@@ -94,8 +97,11 @@ public class FragementAdvertisement extends Fragment {
         recList.setLayoutManager(llm);
 
         TextView go = (TextView) view.findViewById(R.id.button_submit);
+        go.setTypeface(head);
         TextView search_by_txt = (TextView) view.findViewById(R.id.search_by_txt);
+        search_by_txt.setTypeface(head);
         search_by = (TextView) view.findViewById(R.id.search_by);
+        search_by.setTypeface(head);
 
 
        /* search_by.setTypeface(desc);

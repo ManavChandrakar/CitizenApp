@@ -134,7 +134,7 @@ public class PTaxAdapter extends RecyclerView.Adapter<PTaxAdapter.FeedViewHolder
                 String[] dueamounts = new String[dues.length()];
                 final String[] dueyears = new String[dues.length()];
                 String[] duegen = new String[dues.length()];
-
+                JSONArray jsonArray=new JSONArray();
                 for(int k=0; k < dues.length();k++) {
 
                     JSONObject due = dues.getJSONObject(k);
@@ -142,8 +142,11 @@ public class PTaxAdapter extends RecyclerView.Adapter<PTaxAdapter.FeedViewHolder
                     dueamounts[k] = due.getString("pay_amount");
                     dueyears[k] =due.getString("due_year");
                     duegen[k] =due.getString("generated");
+                    jsonArray.put(due.getString("due_year"));
 
                 }
+
+                session.storeVal("jsonArray",jsonArray.toString());
 
 
                 final String[] damounts = dueamounts;
@@ -214,13 +217,13 @@ public class PTaxAdapter extends RecyclerView.Adapter<PTaxAdapter.FeedViewHolder
                                 session.storeVal("dues_selected",dues_selected.toString());
 
                                 if(checkDues(dueyears,dgenerated) > 0){
-                                    feedViewHolder.paynow.setVisibility(View.GONE);
-                                    feedViewHolder.issue_demand.setVisibility(View.VISIBLE);
+                                    feedViewHolder.paynow.setVisibility(View.VISIBLE);
+                                  //  feedViewHolder.issue_demand.setVisibility(View.VISIBLE);
 
                                 }
                                 else{
                                     feedViewHolder.paynow.setVisibility(View.VISIBLE);
-                                    feedViewHolder.issue_demand.setVisibility(View.GONE);
+                                   // feedViewHolder.issue_demand.setVisibility(View.GONE);
                                 }
 
 
@@ -305,6 +308,7 @@ public class PTaxAdapter extends RecyclerView.Adapter<PTaxAdapter.FeedViewHolder
                     session.storeVal("pay_mobile",dat.mobile);
                     session.storeVal("pay_assessment",dat.assessment);
                     session.storeVal("pay_hid",dat.hid);
+                    session.storeVal("father",dat.father_name);
 
 
                     Intent i = new Intent(context, CheckoutActivity.class);

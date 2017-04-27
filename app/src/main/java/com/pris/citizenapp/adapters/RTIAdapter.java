@@ -2,6 +2,7 @@ package com.pris.citizenapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -52,6 +53,7 @@ public class RTIAdapter extends RecyclerView.Adapter<RTIAdapter.FeedViewHolder> 
     @Override
     public void onBindViewHolder(final RTIAdapter.FeedViewHolder feedViewHolder, int i) {
 
+        Typeface head = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto_Light.ttf");
 
         final RTIDataModel ci = contactList.get(i);
 
@@ -102,6 +104,11 @@ public class RTIAdapter extends RecyclerView.Adapter<RTIAdapter.FeedViewHolder> 
             }
         });
 
+
+        feedViewHolder.tv1.setTypeface(head);
+        feedViewHolder.tv2.setTypeface(head);
+        feedViewHolder.tv3.setTypeface(head);
+        feedViewHolder.tv4.setTypeface(head);
     }
 
 
@@ -127,6 +134,7 @@ public class RTIAdapter extends RecyclerView.Adapter<RTIAdapter.FeedViewHolder> 
         protected TextView gid;
         protected TextView reportedby;
         protected TextView reportedon;
+        TextView tv1,tv2,tv3,tv4;
 
         protected TextView status;
 
@@ -157,6 +165,10 @@ public class RTIAdapter extends RecyclerView.Adapter<RTIAdapter.FeedViewHolder> 
             reportedon=(TextView)v.findViewById(R.id.reportedon);;
             status=(TextView)v.findViewById(R.id.status);
             llcomplete=(LinearLayout)v.findViewById(R.id.llcomplete);
+            tv1=(TextView)v.findViewById(R.id.tv1);
+            tv2=(TextView)v.findViewById(R.id.tv2);
+            tv3=(TextView)v.findViewById(R.id.tv3);
+            tv4=(TextView)v.findViewById(R.id.tv4);
 
         }
     }

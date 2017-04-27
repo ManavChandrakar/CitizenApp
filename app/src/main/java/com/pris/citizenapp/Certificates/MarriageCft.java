@@ -1,6 +1,7 @@
 package com.pris.citizenapp.Certificates;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -37,6 +39,7 @@ public class MarriageCft extends AppCompatActivity {
     public MaterialDialog progDialog;
     public SessionManager session;
     ArrayList<String> al;
+    TextView tv1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,9 +47,14 @@ public class MarriageCft extends AppCompatActivity {
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Marriage Certificate");
         setSupportActionBar(toolbar);
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
+
         session=new SessionManager(this);
         assessNo=(EditText)findViewById(R.id.assesno);
         button=(Button)findViewById(R.id.btnsubmit);
+        tv1=(TextView)findViewById(R.id.tv1);
+        tv1.setTypeface(head);
+        button.setTypeface(head);
 
         //initialise popup
         popAlert = new MaterialDialog.Builder(this)

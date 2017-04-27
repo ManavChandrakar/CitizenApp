@@ -7,8 +7,10 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -38,11 +40,17 @@ public class TapOtp extends AppCompatActivity {
     private MaterialDialog progDialog;
     private SessionManager session;
     public MaterialDialog popAlert;
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
 
+
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Tap Otp");
+        setSupportActionBar(toolbar);
         session = new SessionManager(this);
 
         popAlert = new MaterialDialog.Builder(this)
@@ -58,12 +66,14 @@ public class TapOtp extends AppCompatActivity {
 
         TextView otptxt = (TextView) findViewById(R.id.otptxt);
 
-        TextView resend = (TextView) findViewById(R.id.button_resend);
+        final TextView resend = (TextView) findViewById(R.id.button_resend);
+        resend.setTypeface(head);
 
 
         otptxt.setTypeface(rl);
 
         Button otp_btn = (Button) findViewById(R.id.button_otp);
+        otp_btn.setTypeface(head);
 
 
         otp_btn.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +87,17 @@ public class TapOtp extends AppCompatActivity {
         resend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                resend.setClickable(false);
+                resend.setEnabled(false);
+                new Handler().postDelayed(new Runnable()
+                {
+                    public void run()
+                    {
+                        resend.setClickable(true);
+                        resend.setEnabled(true);
+                    }
+                }, 9000);
                 Map<String, String> params = new LinkedHashMap<String, String>();
 
                 params.put("resendPtapOtp","true");

@@ -1,6 +1,7 @@
 package com.pris.citizenapp.Fragments;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -43,11 +44,19 @@ public class Profile extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         session = new SessionManager(view.getContext());
+
+        Typeface head = Typeface.createFromAsset(view.getContext().getAssets(), "fonts/Roboto_Light.ttf");
+
         update=(TextView)view.findViewById(R.id.update);
+        update.setTypeface(head);
         history=(TextView)view.findViewById(R.id.history);
+        history.setTypeface(head);
         changepassword=(TextView)view.findViewById(R.id.changepass);
+        changepassword.setTypeface(head);
         logout=(TextView)view.findViewById(R.id.logout);
+        logout.setTypeface(head);
         linkedppt=(TextView)view.findViewById(R.id.linkedppt);
+        linkedppt.setTypeface(head);
 
         linkedppt.setOnClickListener(new View.OnClickListener() {
             @Override

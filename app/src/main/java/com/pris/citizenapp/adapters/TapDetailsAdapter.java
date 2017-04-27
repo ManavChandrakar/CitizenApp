@@ -1,6 +1,7 @@
 package com.pris.citizenapp.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,6 +57,8 @@ public class TapDetailsAdapter extends RecyclerView.Adapter<TapDetailsAdapter.Fe
     @Override
     public void onBindViewHolder(TapDetailsAdapter.FeedViewHolder holder, int position) {
 
+
+        Typeface head = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto_Light.ttf");
         Replies ci=contactList.get(position);
 
         holder.reply.setText(ci.reply);
@@ -113,6 +116,10 @@ public class TapDetailsAdapter extends RecyclerView.Adapter<TapDetailsAdapter.Fe
                 context.startActivity(intent); *//*
             }
         });*/
+        holder.tv1.setTypeface(head);
+        holder.tv2.setTypeface(head);
+        holder.tv3.setTypeface(head);
+        holder.tv4.setTypeface(head);
 
     }
 
@@ -128,6 +135,7 @@ public class TapDetailsAdapter extends RecyclerView.Adapter<TapDetailsAdapter.Fe
         protected TextView repdate;
         protected TextView repstatus;
        // protected TextView imagebtn;
+       TextView tv1,tv2,tv3,tv4;
 
         public FeedViewHolder(View v) {
             super(v);
@@ -137,6 +145,10 @@ public class TapDetailsAdapter extends RecyclerView.Adapter<TapDetailsAdapter.Fe
             repdate=(TextView)v.findViewById(R.id.repDate);
             repstatus=(TextView)v.findViewById(R.id.repstatus);
            /* imagebtn=(TextView) v.findViewById(R.id.imgbtn);*/
+            tv1=(TextView)v.findViewById(R.id.tv1);
+            tv2=(TextView)v.findViewById(R.id.tv2);
+            tv3=(TextView)v.findViewById(R.id.tv3);
+            tv4=(TextView)v.findViewById(R.id.tv4);
         }
     }
 }

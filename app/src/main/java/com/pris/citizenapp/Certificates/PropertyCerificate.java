@@ -1,6 +1,7 @@
 package com.pris.citizenapp.Certificates;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -40,16 +41,22 @@ public class PropertyCerificate extends AppCompatActivity {
     public MaterialDialog progDialog;
     public SessionManager session;
     ArrayList<String> al;
+    TextView tv1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.certificate_ppt);
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
+
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Property Certificate");
         setSupportActionBar(toolbar);
         session=new SessionManager(this);
         assessNo=(EditText)findViewById(R.id.assesno);
         button=(Button)findViewById(R.id.btnsubmit);
+        tv1=(TextView)findViewById(R.id.tv1);
+        tv1.setTypeface(head);
+        button.setTypeface(head);
 
         //initialise popup
         popAlert = new MaterialDialog.Builder(this)

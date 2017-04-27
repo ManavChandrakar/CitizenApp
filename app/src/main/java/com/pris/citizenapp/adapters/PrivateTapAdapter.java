@@ -2,6 +2,7 @@ package com.pris.citizenapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -55,6 +56,7 @@ public class PrivateTapAdapter extends RecyclerView.Adapter<PrivateTapAdapter.Fe
     @Override
     public void onBindViewHolder(final PrivateTapAdapter.FeedViewHolder feedViewHolder, int i) {
 
+        Typeface head = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto_Light.ttf");
 
         final PrivateTapModel ci = contactList.get(i);
 
@@ -149,6 +151,17 @@ public class PrivateTapAdapter extends RecyclerView.Adapter<PrivateTapAdapter.Fe
             feedViewHolder.button.setVisibility(View.GONE);
         }
 
+        feedViewHolder.tv1.setTypeface(head);
+        feedViewHolder.tv2.setTypeface(head);
+        feedViewHolder.tv3.setTypeface(head);
+        feedViewHolder.tv4.setTypeface(head);
+        feedViewHolder.tv5.setTypeface(head);
+        feedViewHolder.tv6.setTypeface(head);
+        feedViewHolder.tv7.setTypeface(head);
+        feedViewHolder.tv8.setTypeface(head);
+        feedViewHolder.tv9.setTypeface(head);
+        feedViewHolder.tv10.setTypeface(head);
+
     }
 
 
@@ -183,7 +196,7 @@ public class PrivateTapAdapter extends RecyclerView.Adapter<PrivateTapAdapter.Fe
         protected TextView tid;
         protected TextView ttime;
 
-        protected TextView status;
+        protected TextView status,tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10;
         protected Button button;
 
 
@@ -205,6 +218,16 @@ public class PrivateTapAdapter extends RecyclerView.Adapter<PrivateTapAdapter.Fe
             status=(TextView)v.findViewById(R.id.status);
             button=(Button)v.findViewById(R.id.btnpay);
             llcomplete=(LinearLayout)v.findViewById(R.id.llcomplete);
+            tv1=(TextView)v.findViewById(R.id.tv1);
+            tv2=(TextView)v.findViewById(R.id.tv2);
+            tv3=(TextView)v.findViewById(R.id.tv3);
+            tv4=(TextView)v.findViewById(R.id.tv4);
+            tv5=(TextView)v.findViewById(R.id.tv5);
+            tv6=(TextView)v.findViewById(R.id.tv6);
+            tv7=(TextView)v.findViewById(R.id.tv7);
+            tv8=(TextView)v.findViewById(R.id.tv8);
+            tv8=(TextView)v.findViewById(R.id.tv9);
+            tv10=(TextView)v.findViewById(R.id.tv10);
 
         }
     }

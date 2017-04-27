@@ -149,6 +149,7 @@
         >
 
     <TextView
+        android:id="@+id/tvx"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="OR SIGNIN WITH "
@@ -167,7 +168,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_weight="1"
-   android:background="#ffffff"
+    android:background="#ffffff"
     android:paddingTop="5dp"
     android:paddingBottom="5dp"
     android:src="@mipmap/ic_launcher"/>
@@ -200,7 +201,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher_round"/>
+            android:src="@drawable/ic_elabs"/>
 </LinearLayout>
   <!--  <TextView
         android:id="@+id/error"

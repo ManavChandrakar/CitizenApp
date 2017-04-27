@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.media.ExifInterface;
@@ -116,6 +117,7 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
     MaterialDialog popAlert;
     LinearLayout lln;
     View vie;
+    TextView tv1,tv2,tv3,tv4,tv5;
     private SimpleDateFormat dateFormatter;
 
     @Override
@@ -124,11 +126,23 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.capture);
         setTitle("Grevience Form");
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
 
-     //   Realm.init(this);
+
+        //   Realm.init(this);
 
       //  realm = Realm.getDefaultInstance();
       //  setTitle("Grevience");
+        tv1=(TextView)findViewById(R.id.tv1);
+        tv1.setTypeface(head);
+        tv2=(TextView)findViewById(R.id.tv2);
+        tv2.setTypeface(head);
+        tv3=(TextView)findViewById(R.id.tv3);
+        tv3.setTypeface(head);
+        tv4=(TextView)findViewById(R.id.tv4);
+        tv4.setTypeface(head);
+        tv5=(TextView)findViewById(R.id.tv5);
+        tv5.setTypeface(head);
         name=(EditText)findViewById(R.id.Name);
         mail=(EditText)findViewById(R.id.mail);
         mobile=(EditText)findViewById(R.id.mobile);
@@ -137,7 +151,9 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
         details=(EditText)findViewById(R.id.editdetails);
         landmark=(EditText)findViewById(R.id.landmark);
         ClickCat=(TextView) findViewById(R.id.clickcat);
+        ClickCat.setTypeface(head);
         ClickSubcat=(TextView) findViewById(R.id.clicksubcat);
+        ClickSubcat.setTypeface(head);
         category=new ArrayList<String>();
         subcategory=new ArrayList<String>();
         vie=(View)findViewById(R.id.vw);
@@ -221,7 +237,6 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
 
         session = new SessionManager(this);
         utils = new ImageLoadingUtils(CaptureAndConfirm.this);
-       // capimg = (SimpleDraweeView) findViewById(R.id.thumb_view);
 
         progress = new MaterialDialog.Builder(this)
                 .title("Fetching Data")
@@ -287,6 +302,7 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
 
 
         Button capture = (Button) findViewById(R.id.capture);
+        capture.setTypeface(head);
 
         capture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -319,6 +335,7 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
 
 
         Button save = (Button) findViewById(R.id.save);
+        save.setTypeface(head);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override

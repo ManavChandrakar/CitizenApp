@@ -59,6 +59,8 @@ public class Auction extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         session  = new SessionManager(this);
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
+
        /* Typeface head = Typeface.createFromAsset(getAssets(), "fonts/RobotoCondensed_Bold.ttf");
         Typeface desc = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");*/
         progress = new MaterialDialog.Builder(this)
@@ -92,8 +94,11 @@ public class Auction extends AppCompatActivity {
         recList.setLayoutManager(llm);
 
         TextView go = (TextView) findViewById(R.id.button_submit);
+        go.setTypeface(head);
         TextView search_by_txt = (TextView) findViewById(R.id.search_by_txt);
+        search_by_txt.setTypeface(head);
         final TextView search_by = (TextView) findViewById(R.id.search_by);
+        search_by.setTypeface(head);
 
 
        /* search_by.setTypeface(desc);

@@ -63,6 +63,8 @@ public class FragmentTradeTax extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Typeface head = Typeface.createFromAsset(view.getContext().getAssets(), "fonts/Roboto_Light.ttf");
+
         session = new SessionManager(view.getContext());
 
         session  = new SessionManager(view.getContext());
@@ -98,8 +100,11 @@ public class FragmentTradeTax extends Fragment {
         recList.setLayoutManager(llm);
 
         TextView go = (TextView) view.findViewById(R.id.button_submit);
+        go.setTypeface(head);
         TextView search_by_txt = (TextView) view.findViewById(R.id.search_by_txt);
+        search_by_txt.setTypeface(head);
         final TextView search_by = (TextView) view.findViewById(R.id.search_by);
+        search_by.setTypeface(head);
 
 
      /*   search_by.setTypeface(desc);

@@ -2,6 +2,7 @@ package com.pris.citizenapp.login;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -39,17 +41,28 @@ public class ChangePassword extends AppCompatActivity {
     SessionManager session;
     public MaterialDialog popAlert;
     public MaterialDialog progDialog;
+    TextView tv1,tv2,tv3;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.change_password);
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
+
         session=new SessionManager(this);
         oldpass=(EditText)findViewById(R.id.oldpass);
         newpass=(EditText)findViewById(R.id.new_pass);
         confirmpass=(EditText)findViewById(R.id.confirm_pass);
         btnchnage=(Button)findViewById(R.id.btnchangepass);
         setTitle("Update Password");
+
+        tv1=(TextView)findViewById(R.id.tv1);
+        tv2=(TextView)findViewById(R.id.tv2);
+        tv3=(TextView)findViewById(R.id.tv3);
+        tv1.setTypeface(head);
+        tv2.setTypeface(head);
+        tv3.setTypeface(head);
+        btnchnage.setTypeface(head);
 
         popAlert = new MaterialDialog.Builder(this)
                 .title("Errors Found!")

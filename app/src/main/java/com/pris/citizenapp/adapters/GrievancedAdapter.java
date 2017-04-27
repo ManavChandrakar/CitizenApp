@@ -2,6 +2,7 @@ package com.pris.citizenapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -52,8 +53,9 @@ public class GrievancedAdapter extends RecyclerView.Adapter<GrievancedAdapter.Fe
     @Override
     public void onBindViewHolder(final FeedViewHolder feedViewHolder, int i) {
 
+        Typeface head = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto_Light.ttf");
 
-       final GrievanceModel ci = contactList.get(i);
+        final GrievanceModel ci = contactList.get(i);
 
         feedViewHolder.gid.setText(ci.grievance_id);
         feedViewHolder.category.setText(ci.category);
@@ -107,6 +109,13 @@ public class GrievancedAdapter extends RecyclerView.Adapter<GrievancedAdapter.Fe
             }
         });
 
+        feedViewHolder.tv1.setTypeface(head);
+        feedViewHolder.tv2.setTypeface(head);
+        feedViewHolder.tv3.setTypeface(head);
+        feedViewHolder.tv4.setTypeface(head);
+        feedViewHolder.tv5.setTypeface(head);
+        feedViewHolder.tv6.setTypeface(head);
+
     }
 
 
@@ -129,7 +138,7 @@ public class GrievancedAdapter extends RecyclerView.Adapter<GrievancedAdapter.Fe
     public static class FeedViewHolder extends RecyclerView.ViewHolder {
 
         //   protected TextView uid;
-        protected TextView gid;
+        protected TextView gid,tv1,tv2,tv3,tv4,tv5,tv6;
         protected TextView reportedby;
         protected TextView reportedon;
 
@@ -159,6 +168,7 @@ public class GrievancedAdapter extends RecyclerView.Adapter<GrievancedAdapter.Fe
             map = (TextView) v.findViewById(R.id.map);
 
 */
+
             gid=(TextView)v.findViewById(R.id.gid);
             reportedby=(TextView)v.findViewById(R.id.reported);
             reportedon=(TextView)v.findViewById(R.id.reportedon);
@@ -166,6 +176,13 @@ public class GrievancedAdapter extends RecyclerView.Adapter<GrievancedAdapter.Fe
             subcategory=(TextView)v.findViewById(R.id.subcat);
             status=(TextView)v.findViewById(R.id.status);
             llcomplete=(LinearLayout)v.findViewById(R.id.llcomplete);
+            tv1=(TextView)v.findViewById(R.id.tv1);
+            tv2=(TextView)v.findViewById(R.id.tv2);
+            tv3=(TextView)v.findViewById(R.id.tv3);
+            tv4=(TextView)v.findViewById(R.id.tv4);
+            tv5=(TextView)v.findViewById(R.id.tv5);
+            tv6=(TextView)v.findViewById(R.id.tv6);
+
 
         }
     }

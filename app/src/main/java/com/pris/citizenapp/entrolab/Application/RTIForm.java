@@ -1,5 +1,6 @@
 package com.pris.citizenapp.entrolab.Application;
 
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -40,6 +42,7 @@ public class RTIForm extends AppCompatActivity {
     Button save;
     Toolbar toolbar;
     private SessionManager session;
+    TextView tv1,tv2,tv3,tv4,tv5,tv6;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,20 @@ public class RTIForm extends AppCompatActivity {
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("RTI Form");
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
+
+        tv1=(TextView)findViewById(R.id.tv1);
+        tv1.setTypeface(head);
+        tv2=(TextView)findViewById(R.id.tv2);
+        tv2.setTypeface(head);
+        tv3=(TextView)findViewById(R.id.tv3);
+        tv3.setTypeface(head);
+        tv4=(TextView)findViewById(R.id.tv4);
+        tv4.setTypeface(head);
+        tv5=(TextView)findViewById(R.id.tv5);
+        tv5.setTypeface(head);
+        tv6=(TextView)findViewById(R.id.tv6);
+        tv6.setTypeface(head);
         name=(EditText)findViewById(R.id.Name);
         mobile=(EditText)findViewById(R.id.mobile);
         mail=(EditText)findViewById(R.id.mail);
@@ -54,8 +71,11 @@ public class RTIForm extends AppCompatActivity {
         address=(EditText)findViewById(R.id.editdetails);
         inforamtion=(EditText)findViewById(R.id.landmark);
         cb1=(CheckBox)findViewById(R.id.check1);
+        cb1.setTypeface(head);
         cb2=(CheckBox)findViewById(R.id.check2);
+        cb2.setTypeface(head);
         save = (Button) findViewById(R.id.submit);
+        save.setTypeface(head);
 
         session = new SessionManager(this);
         progress = new MaterialDialog.Builder(this)

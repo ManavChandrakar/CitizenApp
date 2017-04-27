@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#dfdfdf"
+
     android:layout_height="match_parent">
 
   <!--  <include layout="@layout/toolbar_layout"
@@ -27,6 +27,7 @@
     >
 
     <TextView
+        android:id="@+id/tv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name *"
@@ -48,6 +49,7 @@
         android:hint="Enter Full Name"/>
 
     <TextView
+        android:id="@+id/tv2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Email *"
@@ -72,6 +74,7 @@
 
 
     <TextView
+        android:id="@+id/tv3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Mobile No *"
@@ -91,6 +94,7 @@
         android:layout_height="wrap_content"
         android:textColor="#333333"
         android:maxLength="10"
+        android:inputType="number"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/edittext_bg"
@@ -98,6 +102,7 @@
         android:hint="Enter Mobile Number"/>
 
     <TextView
+        android:id="@+id/tv4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Aadhar Number"
@@ -116,11 +121,13 @@
         android:layout_height="wrap_content"
         android:textColor="#333333"
         android:maxLength="12"
+        android:inputType="number"
         android:singleLine="true"
         android:background="@drawable/edittext_bg"
         android:hint="Enter Aadhar Number"/>
 
     <TextView
+        android:id="@+id/tv6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Gender"
@@ -157,7 +164,7 @@
     </RadioGroup>
 
     <TextView
-
+        android:id="@+id/tv7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"

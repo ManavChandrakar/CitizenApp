@@ -76,6 +76,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyHolder> {
 
     @Override
     public void onBindViewHolder(NewsAdapter.MyHolder holder, int position) {
+        Typeface head = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto_Light.ttf");
+
         final NewsModel i= contactList.get(position);
 
         if(!(TextUtils.isEmpty(i.title))) {
@@ -138,6 +140,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyHolder> {
             }
         });
 
+        holder.title.setTypeface(head);
+        holder.timestamp.setTypeface(head);
 
     }
 

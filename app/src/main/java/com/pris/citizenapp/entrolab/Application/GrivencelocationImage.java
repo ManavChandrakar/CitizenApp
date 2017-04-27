@@ -3,6 +3,7 @@ package com.pris.citizenapp.entrolab.Application;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -44,7 +45,7 @@ public class GrivencelocationImage extends AppCompatActivity implements OnMapRea
     private double latitude_v;
     private double longitude_v;
     GPSTracker gps;
-
+    TextView tv1,tv2;
 
     private ImageLoadingUtils utils;
 
@@ -60,6 +61,7 @@ public class GrivencelocationImage extends AppCompatActivity implements OnMapRea
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_location);
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
 
         session = new SessionManager(this);
 
@@ -84,6 +86,10 @@ public class GrivencelocationImage extends AppCompatActivity implements OnMapRea
 
         loc = (TextView) findViewById(R.id.location);
         gpstxt = (TextView) findViewById(R.id.gps);
+        tv1=(TextView)findViewById(R.id.location_txt);
+        tv1.setTypeface(head);
+        tv2=(TextView)findViewById(R.id.gps_location);
+        tv2.setTypeface(head);
 
 
         gps = new GPSTracker(this);

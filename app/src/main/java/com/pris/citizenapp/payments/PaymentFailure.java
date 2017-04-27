@@ -35,16 +35,25 @@ public class PaymentFailure  extends AppCompatActivity {
         setTitle("Payment Failed");
 
         TextView success_msg = (TextView) findViewById(R.id.success_message);
+        success_msg.setTypeface(head);
         TextView order_id = (TextView) findViewById(R.id.transaction);
+        order_id.setTypeface(head);
         TextView bank_transaction = (TextView) findViewById(R.id.bank_transaction);
+        bank_transaction.setTypeface(head);
         TextView amount = (TextView) findViewById(R.id.amount);
+        amount.setTypeface(head);
         TextView name = (TextView) findViewById(R.id.billing_name);
+        name.setTypeface(head);
         TextView email = (TextView) findViewById(R.id.billing_email);
+        email.setTypeface(head);
         TextView mobile = (TextView) findViewById(R.id.billing_mobile);
+        mobile.setTypeface(head);
         TextView purpose = (TextView) findViewById(R.id.billing_purpose);
+        purpose.setTypeface(head);
 
 
         Button gohome = (Button) findViewById(R.id.button_back);
+        gohome.setTypeface(head);
 
         gohome.setOnClickListener(new View.OnClickListener() {
             @Override

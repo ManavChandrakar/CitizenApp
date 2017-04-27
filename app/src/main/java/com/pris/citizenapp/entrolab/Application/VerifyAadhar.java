@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -39,11 +40,14 @@ public class VerifyAadhar extends AppCompatActivity {
     private MaterialDialog forgot;
     String aadharstr="";
     String s="";
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.verify_aadhar);
-
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Verify Aadhar");
+        setSupportActionBar(toolbar);
         session = new SessionManager(this);
         Intent call=getIntent();
          s=call.getStringExtra("flag");
@@ -114,6 +118,7 @@ public class VerifyAadhar extends AppCompatActivity {
 
 
         Button otp_btn = (Button) findViewById(R.id.button_otp);
+        otp_btn.setTypeface(rl);
 
 
         otp_btn.setOnClickListener(new View.OnClickListener() {

@@ -67,6 +67,7 @@ public class CustomSwipeAdapter extends PagerAdapter{
         imageView.setImageBitmap(bitmap);*/
         Glide.with(ctx)
                 .load(Uri.parse(al.get(position)))
+                .fitCenter()
                 .into(imageView);
 
         container.addView(itemview);

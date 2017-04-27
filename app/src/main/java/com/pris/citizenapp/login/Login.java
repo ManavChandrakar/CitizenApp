@@ -2,6 +2,7 @@ package com.pris.citizenapp.login;
 
 import android.Manifest;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -58,7 +59,7 @@ public class Login  extends AppCompatActivity implements GoogleApiClient.OnConne
     EditText num, pass;
     Button login;
     ImageButton GoogleLogin, FacebookLogin;
-    TextView tv, register, forgotpass;
+    TextView tv, register, forgotpass,tvx;
 
     //
     String mymobile="";
@@ -92,13 +93,23 @@ public class Login  extends AppCompatActivity implements GoogleApiClient.OnConne
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Login");
         setSupportActionBar(toolbar);
+
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
+
+        tv=(TextView)findViewById(R.id.tv);
+        tv.setTypeface(head);
+        tvx=(TextView)findViewById(R.id.tvx);
+        tvx.setTypeface(head);
         num = (EditText) findViewById(R.id.editnum);
         GoogleLogin = (ImageButton) findViewById(R.id.googleLogin);
         FacebookLogin = (ImageButton) findViewById(R.id.facebookLogin);
         pass = (EditText) findViewById(R.id.editpass);
         login = (Button) findViewById(R.id.loginbtn);
         register = (TextView) findViewById(R.id.register);
+        register.setTypeface(head);
         forgotpass = (TextView) findViewById(R.id.forgot);
+        forgotpass.setTypeface(head);
+        login.setTypeface(head);
         callbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override

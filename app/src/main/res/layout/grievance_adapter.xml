@@ -22,6 +22,7 @@
         android:orientation="horizontal"
         >
    <TextView
+       android:id="@+id/tv1"
        android:layout_width="0dp"
        android:layout_height="wrap_content"
        android:text="Grievance Id :"
@@ -48,6 +49,7 @@
         android:orientation="horizontal"
         >
         <TextView
+            android:id="@+id/tv2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Reported By :"
@@ -73,6 +75,7 @@
         android:orientation="horizontal"
         >
         <TextView
+            android:id="@+id/tv3"
             android:layout_width="0dp"
             android:layout_weight="4"
             android:layout_height="wrap_content"
@@ -98,6 +101,7 @@
         android:orientation="horizontal"
         >
         <TextView
+            android:id="@+id/tv4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="SubCategory :"
@@ -123,6 +127,7 @@
         android:orientation="horizontal"
         >
         <TextView
+            android:id="@+id/tv5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Reported On :"
@@ -148,6 +153,7 @@
         android:orientation="horizontal"
         >
         <TextView
+            android:id="@+id/tv6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"

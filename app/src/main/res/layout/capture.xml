@@ -66,7 +66,8 @@
                     android:text="GPS Coordinates"
                     android:id="@+id/gps_location"
                     android:layout_gravity="center_vertical"
-                    android:textSize="12sp"  android:layout_weight="2"/>
+                    android:textSize="12sp"
+                    android:layout_weight="2"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -133,6 +134,7 @@
                 android:inputType="number" />-->
 
             <TextView
+                android:id="@+id/tv1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name *"
@@ -155,6 +157,7 @@
                 android:hint="Enter Full Name"/>
 
             <TextView
+                android:id="@+id/tv2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Email *"
@@ -175,10 +178,12 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:singleLine="true"
+                android:inputType="number"
                 android:background="@drawable/edittext_bg"
-                android:hint="Enter Mobile No."/>
+                android:hint="Enter Mailid"/>
 
             <TextView
+                android:id="@+id/tv3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mobile *"
@@ -200,9 +205,10 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:maxLength="10"
+                android:inputType="number"
                 android:singleLine="true"
                 android:background="@drawable/edittext_bg"
-                android:hint="Enter mailid"/>
+                android:hint="Enter Mobile No."/>
             
             <View
                 android:id="@+id/vw"
@@ -267,6 +273,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Grievance Detail"
@@ -312,6 +319,7 @@
 
 
             <TextView
+                android:id="@+id/tv5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Landmark(if any)"

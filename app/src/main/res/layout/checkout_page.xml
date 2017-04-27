@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/toolbar_layout" />
+    <TextView android:textSize="20sp"
+        android:textColor="#ff111111"
+        android:gravity="center"
+        android:id="@+id/taxtype"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10.0dip"
+        android:text="Property Tax"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentStart="true" />
+
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:id="@+id/top_layout"
+        android:background="@color/appcolor"
+        android:padding="4.0dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/taxtype">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+
+            <TextView android:textSize="12.0sp"
+
+                android:textColor="#ffeeeeee"
+                android:id="@+id/hid_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HID" />
+            <TextView
+                android:textSize="18.0sp"
+                android:textColor="#ffffffff"
+                android:id="@+id/hid"
+                android:paddingTop="4.0dip"
+                android:paddingBottom="4.0dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="\ 20150948225" />
+
+        </LinearLayout>
+
+
+        <LinearLayout android:gravity="right"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
+            <TextView android:textSize="12.0sp"
+                android:textColor="#ffeeeeee"
+                android:id="@+id/assessment_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assessment No" />
+
+
+            <TextView android:textSize="18.0sp"
+                android:textColor="#ffffffff"
+                android:id="@+id/assessment"
+                android:paddingTop="8.0dip"
+                android:paddingBottom="4.0dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="222" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/body_layout"
+        android:background="#ffffffff"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2.0dip"
+        android:layout_below="@id/top_layout"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/linearLayout3"
+            android:padding="4.0dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView android:textSize="18.0sp"
+                android:textColor="@color/appcolor"
+                android:id="@+id/citizen"
+                android:paddingTop="4.0dip"
+                android:paddingBottom="4.0dip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Citizen Name"
+                android:maxLines="2" />
+
+            <TextView android:textSize="16.0sp"
+                android:textColor="#ff111111"
+                android:id="@+id/father_name"
+                android:paddingTop="4.0dip"
+                android:paddingBottom="4.0dip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="S/W/o Father Name"
+                android:maxLines="2" />
+
+
+            <TextView android:textSize="12.0sp"
+                android:textColor="#ff444444"
+                android:id="@+id/aadhar_txt"
+                android:paddingTop="4.0dip"
+                android:paddingBottom="0.0dip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Aadhar" />
+
+
+            <TextView android:textColor="#ff222222"
+                android:id="@+id/aadhar"
+                android:paddingTop="4.0dip"
+                android:paddingBottom="4.0dip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="\ 989878784545" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/duelist"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout3">
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/due_header"
+                android:background="@color/appcolor"
+                android:paddingLeft="8.0dip"
+                android:paddingRight="8.0dip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/total_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/duelist"
+            android:orientation="horizontal"
+            android:paddingLeft="8.0dip"
+            android:paddingRight="8.0dip">
+
+            <TextView
+                android:id="@+id/total_txt"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:paddingBottom="6.0dip"
+                android:paddingLeft="2.0dip"
+                android:paddingTop="6.0dip"
+                android:text="Total"
+                android:textColor="#ff333333"
+                android:textSize="18.0sp" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:paddingBottom="6.0dip"
+                android:paddingLeft="2.0dip"
+                android:paddingTop="6.0dip"
+                android:text="0.00"
+                android:textColor="@color/appcolor"
+                android:textSize="22.0sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/issue_demand"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/total_layout"
+            android:layout_marginLeft="30.0dip"
+            android:layout_marginRight="30.0dip"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center_horizontal"
+            android:paddingBottom="8.0dip"
+            android:paddingTop="8.0dip"
+            android:text="Issue Demand"
+            android:textColor="#ffffffff"
+            android:textSize="18.0sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/myl"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/total_layout"
+            android:layout_marginTop="20.0dip"
+            android:orientation="horizontal"
+            android:weightSum="4.0">
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_weight="1.0"
+                android:text="Mail id"
+                android:textColor="#ff111111" />
+
+            <EditText
+                android:id="@+id/mail"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10.0dip"
+                android:layout_weight="3.0"
+                android:background="@drawable/edittext_bg"
+                android:hint="Enter mailid"
+                android:textColor="#ff333333" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myl"
+            android:layout_marginTop="20.0dip"
+            android:orientation="horizontal"
+            android:weightSum="4.0">
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/total_layout"
+                android:layout_marginLeft="4.0dip"
+                android:layout_weight="1.0"
+                android:text="Mobile"
+                android:textColor="#ff111111" />
+
+            <EditText
+                android:id="@+id/mobile"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10.0dip"
+                android:layout_weight="3.0"
+                android:background="@drawable/edittext_bg"
+                android:editable="false"
+                android:enabled="false"
+                android:hint="Enter Mobile no"
+                android:textColor="#ff333333" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/pay_now"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/appcolor"
+        android:gravity="center_horizontal"
+        android:paddingBottom="8.0dip"
+        android:paddingTop="8.0dip"
+        android:text="Pay Now"
+        android:textColor="#ffffffff"
+        android:textSize="20.0sp" />
+</RelativeLayout>

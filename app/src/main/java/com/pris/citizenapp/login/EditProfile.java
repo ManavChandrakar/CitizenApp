@@ -2,6 +2,7 @@ package com.pris.citizenapp.login;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -82,6 +83,8 @@ public class EditProfile extends AppCompatActivity {
     HashMap<String,String> newmapdiv;
     HashMap<String,String> newmapMand;
     HashMap<String,String> newmappach;
+    TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
@@ -90,10 +93,24 @@ public class EditProfile extends AppCompatActivity {
 
 
         setContentView(R.layout.edit_profile);
+        setTitle("Update Profile");
+
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
+
+
+        tv1=(TextView)findViewById(R.id.tv1) ;
+        tv2=(TextView)findViewById(R.id.tv2);
+        tv3=(TextView)findViewById(R.id.tv3);
+        tv4=(TextView)findViewById(R.id.tv4);
+        tv6=(TextView)findViewById(R.id.tv6);
+        tv7=(TextView)findViewById(R.id.tv7);
+        cmale=(AppCompatRadioButton)findViewById(R.id.male);
+        cfemale=(AppCompatRadioButton)findViewById(R.id.Female);
+
       /*  toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Update Profile");
         setSupportActionBar(toolbar);*/
-        setTitle("Update Profile");
+
        // getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         date_cdd = (TextView) findViewById(R.id.date_ccd);
@@ -115,6 +132,20 @@ public class EditProfile extends AppCompatActivity {
         ClickPan = (TextView) findViewById(R.id.clickpan);
         cmale=(AppCompatRadioButton)findViewById(R.id.male);
         cfemale=(AppCompatRadioButton)findViewById(R.id.Female);
+
+        tv1.setTypeface(head);
+        tv2.setTypeface(head);
+        tv3.setTypeface(head);
+        tv4.setTypeface(head);
+        tv6.setTypeface(head);
+        tv7.setTypeface(head);
+        cmale.setTypeface(head);
+        cfemale.setTypeface(head);
+        ClickDis.setTypeface(head);
+        ClickDiv.setTypeface(head);
+        ClickMan.setTypeface(head);
+        ClickPan.setTypeface(head);
+        submit.setTypeface(head);
 
 
         newmapdist = new HashMap<>();

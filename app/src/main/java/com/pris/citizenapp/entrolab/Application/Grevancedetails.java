@@ -1,5 +1,6 @@
 package com.pris.citizenapp.entrolab.Application;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +40,7 @@ public class Grevancedetails extends AppCompatActivity implements OnMapReadyCall
     RecyclerView recList;
     LinearLayoutManager llm;
     public int LIST_SIZE;
+    TextView tv1,tv2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +48,18 @@ public class Grevancedetails extends AppCompatActivity implements OnMapReadyCall
         setContentView(R.layout.grievence_details);
         setTitle("Grevience Details");
         session = new SessionManager(this);
+        Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
+
         loc=(TextView)findViewById(R.id.location);
         gpstxt=(TextView)findViewById(R.id.gps);
         setUpMapIfNeeded();
         ArrayList<Replies> challenge = this.getIntent().getExtras().getParcelableArrayList("arraydetails");
         recList = (RecyclerView)  findViewById(R.id.myrecyclerView);
         recList.setHasFixedSize(true);
+        tv1=(TextView)findViewById(R.id.location_txt);
+        tv1.setTypeface(head);
+        tv2=(TextView)findViewById(R.id.gps_location);
+        tv2.setTypeface(head);
 
         llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
