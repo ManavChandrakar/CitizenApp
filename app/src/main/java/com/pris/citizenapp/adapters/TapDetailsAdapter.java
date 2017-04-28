@@ -63,6 +63,8 @@ public class TapDetailsAdapter extends RecyclerView.Adapter<TapDetailsAdapter.Fe
 
         holder.reply.setText(ci.reply);
         holder.repname.setText(ci.username);
+        holder.tv0.setText("Application id :");
+        holder.id.setText(ci.grievance_id);
 
         String stat="";
 
@@ -120,6 +122,7 @@ public class TapDetailsAdapter extends RecyclerView.Adapter<TapDetailsAdapter.Fe
         holder.tv2.setTypeface(head);
         holder.tv3.setTypeface(head);
         holder.tv4.setTypeface(head);
+        holder.tv0.setTypeface(head);
 
     }
 
@@ -135,7 +138,7 @@ public class TapDetailsAdapter extends RecyclerView.Adapter<TapDetailsAdapter.Fe
         protected TextView repdate;
         protected TextView repstatus;
        // protected TextView imagebtn;
-       TextView tv1,tv2,tv3,tv4;
+       TextView tv1,tv2,tv3,tv4,tv0,id;
 
         public FeedViewHolder(View v) {
             super(v);
@@ -149,6 +152,8 @@ public class TapDetailsAdapter extends RecyclerView.Adapter<TapDetailsAdapter.Fe
             tv2=(TextView)v.findViewById(R.id.tv2);
             tv3=(TextView)v.findViewById(R.id.tv3);
             tv4=(TextView)v.findViewById(R.id.tv4);
+            tv0=(TextView)v.findViewById(R.id.tv0);
+            id=(TextView)v.findViewById(R.id.id);
         }
     }
 }

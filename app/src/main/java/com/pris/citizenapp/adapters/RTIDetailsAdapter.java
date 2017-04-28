@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +69,8 @@ public class RTIDetailsAdapter extends RecyclerView.Adapter<RTIDetailsAdapter.Fe
 
         holder.reply.setText(ci.reply);
         holder.repname.setText(ci.username);
+        holder.tv0.setText("Application id :");
+        holder.id.setText(ci.grievance_id);
 
         String stat="";
 
@@ -101,7 +104,7 @@ public class RTIDetailsAdapter extends RecyclerView.Adapter<RTIDetailsAdapter.Fe
 
         holder.repdate.setText(time);
 
-        if(ci.file.length()==0)
+        if(TextUtils.isEmpty(ci.file))
         {
             holder.imagebtn.setVisibility(View.GONE);
         }
@@ -111,14 +114,13 @@ public class RTIDetailsAdapter extends RecyclerView.Adapter<RTIDetailsAdapter.Fe
             holder.imagebtn.setVisibility(View.VISIBLE);
         }
 
-        holder.imagebtn.setVisibility(View.VISIBLE);
-
+        final String ic=ci.file;
         holder.imagebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //write logic for downloading file
-               /* Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.androidbegin.com/wp-content/uploads/2013/07/HD-Logo.gif"));
-                context.startActivity(intent); */
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ic));
+                context.startActivity(intent);
             }
         });
 
@@ -126,6 +128,7 @@ public class RTIDetailsAdapter extends RecyclerView.Adapter<RTIDetailsAdapter.Fe
         holder.tv2.setTypeface(head);
         holder.tv3.setTypeface(head);
         holder.tv4.setTypeface(head);
+        holder.tv0.setTypeface(head);
 
 
     }
@@ -142,7 +145,7 @@ public class RTIDetailsAdapter extends RecyclerView.Adapter<RTIDetailsAdapter.Fe
         protected TextView repdate;
         protected TextView repstatus;
         protected TextView imagebtn;
-        TextView tv1,tv2,tv3,tv4;
+        TextView tv1,tv2,tv3,tv4,tv0,id;
 
         public FeedViewHolder(View v) {
             super(v);
@@ -156,6 +159,8 @@ public class RTIDetailsAdapter extends RecyclerView.Adapter<RTIDetailsAdapter.Fe
             tv2=(TextView)v.findViewById(R.id.tv2);
             tv3=(TextView)v.findViewById(R.id.tv3);
             tv4=(TextView)v.findViewById(R.id.tv4);
+            tv0=(TextView)v.findViewById(R.id.tv0);
+            id=(TextView)v.findViewById(R.id.id);
         }
     }
 }

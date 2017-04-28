@@ -39,6 +39,7 @@ import com.pris.citizenapp.entrolab.FooterMain;
 import com.pris.citizenapp.entrolab.MainActivity;
 import com.pris.citizenapp.github.kevinsawicki.http.HttpRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -241,8 +242,6 @@ public class Login  extends AppCompatActivity implements GoogleApiClient.OnConne
 
 
                         new webService().execute(params);
-                    } else {
-                        Toast.makeText(Login.this, "Please Grant required app permissions!!", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -305,8 +304,6 @@ public class Login  extends AppCompatActivity implements GoogleApiClient.OnConne
             if (methodRequiresPermission(perms, 444)) {
 
                 new webService().execute(params);
-            } else {
-                Toast.makeText(Login.this, "Please Grant required app permissions!!", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -353,11 +350,7 @@ public class Login  extends AppCompatActivity implements GoogleApiClient.OnConne
             if (session.haveNetworkConnection()) {
                 if (methodRequiresPermission(perms, 333)) {
                     new webService().execute(params);
-                } else {
-                    Toast.makeText(Login.this, "Please Grant required app permissions!!", Toast.LENGTH_SHORT).show();
-
                 }
-                Toast.makeText(this, Gmail + " " + Gname + " ", Toast.LENGTH_LONG).show();
             }
             else{
                 Toast.makeText(this, "Please make sure that you are connected to an Active Internet connection!", Toast.LENGTH_SHORT).show();
@@ -477,6 +470,11 @@ public class Login  extends AppCompatActivity implements GoogleApiClient.OnConne
 
 
                         session.createLoginSession(result);
+                        if(result.has("banners"))
+                        {
+                            JSONArray js=result.getJSONArray("banners");
+                            session.storeVal("mybanner",js.toString());
+                        }
 
                         Intent intent = new Intent(Login.this, FooterMain.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -625,5 +623,6 @@ public class Login  extends AppCompatActivity implements GoogleApiClient.OnConne
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
+        Toast.makeText(Login.this, "Please Grant required app permissions!!", Toast.LENGTH_SHORT).show();
     }
 }

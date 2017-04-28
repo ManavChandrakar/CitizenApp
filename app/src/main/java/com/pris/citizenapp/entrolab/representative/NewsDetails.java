@@ -3,6 +3,7 @@ package com.pris.citizenapp.entrolab.representative;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.Spanned;
 import android.webkit.WebView;
@@ -23,10 +24,12 @@ public class NewsDetails extends AppCompatActivity {
     TextView title,time;
     WebView web;
     SessionManager session;
+    Toolbar toolbar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         session=new SessionManager(this);
+        setTitle("News Detail");
         setContentView(R.layout.news_details);
         web= (WebView) findViewById(R.id.tvweb);
         /*title=(TextView)findViewById(R.id.titlehead);

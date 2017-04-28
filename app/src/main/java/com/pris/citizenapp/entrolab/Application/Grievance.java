@@ -58,7 +58,7 @@ public class Grievance extends AppCompatActivity {
         setContentView(R.layout.fab);
         LIST_SIZE=0;
         toolbar=(Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Greviences");
+        toolbar.setTitle("Grievances");
         setSupportActionBar(toolbar);
 
         session  = new SessionManager(this);
@@ -175,12 +175,12 @@ public class Grievance extends AppCompatActivity {
         else{
 
 
-            Toast.makeText(this,"No Updates Found",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"No Records Found",Toast.LENGTH_SHORT).show();
 
         }
 
         if(li == 0){
-            Toast.makeText(this,"No Updates Found",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"No Records Found",Toast.LENGTH_SHORT).show();
 
         }
 

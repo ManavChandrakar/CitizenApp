@@ -216,6 +216,8 @@ public class PTaxAdapter extends RecyclerView.Adapter<PTaxAdapter.FeedViewHolder
 
                                 session.storeVal("dues_selected",dues_selected.toString());
 
+                               // Toast.makeText(context,dues_selected.toString(),Toast.LENGTH_LONG).show();
+
                                 if(checkDues(dueyears,dgenerated) > 0){
                                     feedViewHolder.paynow.setVisibility(View.VISIBLE);
                                   //  feedViewHolder.issue_demand.setVisibility(View.VISIBLE);

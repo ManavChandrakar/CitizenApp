@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -34,6 +35,7 @@ import com.pris.citizenapp.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -312,6 +314,9 @@ public class Register extends AppCompatActivity implements EasyPermissions.Permi
                                     Log.d("Selected", String.valueOf(text) + " - " + which);
                                     String selected = String.valueOf(text);
                                     district.setText(String.valueOf(text));
+                                    div.clear();
+                                    Mand.clear();
+                                    panch.clear();
                                     division.setText("");
                                     division.setHint("Division");
                                     mandal.setText("");
@@ -346,7 +351,7 @@ public class Register extends AppCompatActivity implements EasyPermissions.Permi
                 @Override
                 public void onClick(View view) {
 
-                    if (!(district.getText().toString().equals("null"))) {
+                    if (!(district.getText().toString().equals("null") || TextUtils.isEmpty(district.getText().toString()))) {
 
                         new MaterialDialog.Builder(Register.this)
                                 .title("Division")
@@ -359,6 +364,8 @@ public class Register extends AppCompatActivity implements EasyPermissions.Permi
                                         Log.d("Selected", String.valueOf(text) + " - " + which);
                                         String selected = String.valueOf(text);
                                         division.setText(String.valueOf(text));
+                                        Mand.clear();
+                                        panch.clear();
                                         mandal.setText("");
                                         mandal.setHint("Mandal");
                                         panchayat.setText("");
@@ -413,6 +420,7 @@ public class Register extends AppCompatActivity implements EasyPermissions.Permi
                                         Log.d("Selected", String.valueOf(text) + " - " + which);
                                         String selected = String.valueOf(text);
                                         mandal.setText(String.valueOf(text));
+                                        panch.clear();
                                         panchayat.setText("");
                                         panchayat.setHint("Panchayat");
                                         String uid = mapMand.get(selected);

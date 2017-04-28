@@ -75,6 +75,10 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
+import static com.pris.citizenapp.common.SessionManager.USER_EMAIL;
+import static com.pris.citizenapp.common.SessionManager.USER_FULL_NAME;
+import static com.pris.citizenapp.common.SessionManager.USER_MOBILE;
+
 /**
  * Created by manav on 12/4/17.
  */
@@ -144,9 +148,12 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
         tv5=(TextView)findViewById(R.id.tv5);
         tv5.setTypeface(head);
         name=(EditText)findViewById(R.id.Name);
+        name.setText(session.getStrVal(USER_FULL_NAME));
         mail=(EditText)findViewById(R.id.mail);
+        mail.setText(session.getStrVal(USER_EMAIL));
         mobile=(EditText)findViewById(R.id.mobile);
         cat=(EditText)findViewById(R.id.category);
+        mobile.setText(session.getStrVal(USER_MOBILE));
         subcat=(EditText)findViewById(R.id.subcat);
         details=(EditText)findViewById(R.id.editdetails);
         landmark=(EditText)findViewById(R.id.landmark);

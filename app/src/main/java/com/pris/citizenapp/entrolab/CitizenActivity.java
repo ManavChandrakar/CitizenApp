@@ -41,6 +41,10 @@ import com.pris.citizenapp.entrolab.representative.PublicServants;
 import com.pris.citizenapp.entrolab.representative.YellowPage;
 import com.pris.citizenapp.payments.CheckoutActivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import static com.pris.citizenapp.common.SessionManager.USER_FULL_NAME;
@@ -122,10 +126,22 @@ public class CitizenActivity extends Fragment {
 
         //just for testing
         all=new ArrayList<String>();
+        JSONArray jsonArray= null;
+        try {
+            jsonArray = new JSONArray(session.getStrVal("mybanner"));
+            for(int i=0;i<jsonArray.length();i++)
+            {
+                all.add(jsonArray.getString(i));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+      /*  all.add("http://pris.ap.gov.in/files/test.png");
         all.add("http://pris.ap.gov.in/files/test.png");
         all.add("http://pris.ap.gov.in/files/test.png");
-        all.add("http://pris.ap.gov.in/files/test.png");
-        all.add("http://pris.ap.gov.in/files/test.png");
+        all.add("http://pris.ap.gov.in/files/test.png");*/
         //
 
 

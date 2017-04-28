@@ -29,6 +29,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
+
 import static com.pris.citizenapp.common.SessionManager.USER_EMAIL;
 
 /**
@@ -57,6 +61,7 @@ public class CheckoutActivity extends AppCompatActivity {
     protected TextView paynow;
 
     protected int final_total;
+    Toolbar toolbar;
 
    SessionManager session;
 
@@ -68,6 +73,9 @@ public class CheckoutActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.checkout_page);
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Proceed to Payment");
+        setSupportActionBar(toolbar);
         Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
 
         aadhar=(TextView)findViewById(R.id.aadhar);
@@ -77,7 +85,6 @@ public class CheckoutActivity extends AppCompatActivity {
         hid.setTypeface(head);
         assessment = (TextView) findViewById(R.id.assessment);
         assessment_txt = (TextView) findViewById(R.id.assessment_txt);
-        aadhar_txt.setTypeface(head);
         citizen = (TextView) findViewById(R.id.citizen);
         citizen.setTypeface(head);
         mail=(EditText)findViewById(R.id.mail);
@@ -158,21 +165,48 @@ public class CheckoutActivity extends AppCompatActivity {
                if(res)
                {
                    Checkout checkout = new Checkout();
-                   checkout.setMerchantIdentifier("T45181");  //where T1234 is the MERCHANT CODE, update it with Merchant Code provided by TPSL
-                   checkout.setTransactionIdentifier("TXN003"); //where TXN001 is the Merchant Transaction Identifier, it should be different for each transaction (alphanumeric value, no special character allowed)
-                   checkout.setTransactionReference ("ORD0003"); //where ORD0001 is the Merchant Transaction Reference number
+                   checkout.setMerchantIdentifier("T139772");//where T1234 is the MERCHANT CODE, update it with Merchant Code provided by TPSL
+                   String mres=gen();
+                   checkout.setTransactionIdentifier("TXN"+mres); //where TXN001 is the Merchant Transaction Identifier, it should be different for each transaction (alphanumeric value, no special character allowed)
+                   checkout.setTransactionReference ("ORD"+mres); //where ORD0001 is the Merchant Transaction Reference number
                    checkout.setTransactionType ("Sale"); //Transaction Type
                    checkout.setTransactionSubType ("Debit"); //Transaction Subtype
                    checkout.setTransactionCurrency ("INR"); //Currency Type
-                   checkout.setTransactionAmount ("1.00"); //Transaction Amount
-                   checkout.setTransactionDateTime ("15-04-2017"); //Transaction Date
+                   checkout.setTransactionAmount (session.getStrVal("pay_amount"));//Transaction Amount
+
+                   String todayAsString = new SimpleDateFormat("ddMMyyyy").format(new Date());
+
+                   checkout.setTransactionDateTime (todayAsString); //Transaction Date
                    // setting Consumer fields values
                    checkout.setConsumerIdentifier (""); //Consumer Identifier, default value "", set this value as application user name if you want Instrument Vaulting, SI on Cards. Consumer ID should be alpha-numeric value with no space
-                   checkout.setConsumerEmailID ("test@gmail.com"); //Consumer Email ID
-                   checkout.setConsumerMobileNumber ("9827198271"); //Consumer Mobile Number
+                   checkout.setConsumerEmailID (mail.getText().toString().trim());//Consumer Email ID
+                   checkout.setConsumerMobileNumber (session.getStrVal("pay_mobile")); //Consumer Mobile Number
+                   session.storeVal("payment_mail",mail.getText().toString().trim());
                    checkout.setConsumerAccountNo ("");
-                   checkout.addCartItem("test","1.00","0.0","0.0","","tax","propertytax","www.pris.gov.in");
+
+                   try {
+                       JSONObject jsonObject=new JSONObject(session.getStrVal("dues_selected"));
+                       JSONArray jsonArray=new JSONArray(session.getStrVal("jsonArray"));
+
+                       for(int i=0;i<jsonArray.length();i++)
+                       {
+                           if(jsonObject.has(jsonArray.getString(i)))
+                           {
+                               checkout.addCartItem("test",jsonObject.getString(jsonArray.getString(i)),"0.0","0.0","",jsonArray.getString(i),session.getStrVal("pay_purpose"),"www.pris.gov.in");
+
+                           }
+                       }
+                   } catch (JSONException e) {
+                       e.printStackTrace();
+                   }
+
+                   Intent intent=new Intent(CheckoutActivity.this,PaymentModesActivity.class);
+                   intent.putExtra(PaymentActivity.EXTRA_REQUESTED_PAYMENT_MODE,PaymentActivity.PAYMENT_METHOD_DEFAULT);
+                   intent.putExtra(PaymentActivity.ARGUMENT_DATA_CHECKOUT,checkout);
+                   intent.putExtra(PaymentActivity.EXTRA_PUBLIC_KEY,"6636259131GPLFAX");
+                   startActivityForResult(intent, PaymentActivity.REQUEST_CODE);
                }
+
 
            }
        });
@@ -181,21 +215,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
 
 
-        Checkout checkout = new Checkout();
-        checkout.setMerchantIdentifier("T45181");  //where T1234 is the MERCHANT CODE, update it with Merchant Code provided by TPSL
-        checkout.setTransactionIdentifier("TXN003"); //where TXN001 is the Merchant Transaction Identifier, it should be different for each transaction (alphanumeric value, no special character allowed)
-        checkout.setTransactionReference ("ORD0003"); //where ORD0001 is the Merchant Transaction Reference number
-        checkout.setTransactionType ("Sale"); //Transaction Type
-        checkout.setTransactionSubType ("Debit"); //Transaction Subtype
-        checkout.setTransactionCurrency ("INR"); //Currency Type
-        checkout.setTransactionAmount ("1.00"); //Transaction Amount
-        checkout.setTransactionDateTime ("15-04-2017"); //Transaction Date
-        // setting Consumer fields values
-        checkout.setConsumerIdentifier (""); //Consumer Identifier, default value "", set this value as application user name if you want Instrument Vaulting, SI on Cards. Consumer ID should be alpha-numeric value with no space
-        checkout.setConsumerEmailID ("test@gmail.com"); //Consumer Email ID
-        checkout.setConsumerMobileNumber ("9827198271"); //Consumer Mobile Number
-        checkout.setConsumerAccountNo ("");
-        checkout.addCartItem("test","1.00","0.0","0.0","","tax","propertytax","www.pris.gov.in");
+
 
         //Testing the push
   /*      checkout.setTransactionMerchantInitiated("Y");
@@ -213,6 +233,12 @@ public class CheckoutActivity extends AppCompatActivity {
         startActivityForResult(intent, PaymentActivity.REQUEST_CODE);*/
     }
 
+    public String gen() {
+        Random r = new Random(System.currentTimeMillis() );
+        return 10000 + r.nextInt(20000) + "";
+    }
+
+
     private boolean validate() {
         int error=0;
         String errorTxt="";
@@ -221,6 +247,18 @@ public class CheckoutActivity extends AppCompatActivity {
             if(!Patterns.EMAIL_ADDRESS.matcher(mail.getText().toString()).matches()) {
 
                 errorTxt = "Invalid Email";
+                error++;
+            }
+        }
+
+        String mobilePattern = "^([7-8-9]{1}[0-9]{9})+$";
+        if (error == 0) {
+            if (mobile.getText().toString().trim().length() == 0 ) {
+                errorTxt = "Mobile number Cannot be empty";
+                error++;
+            }
+            else if (mobile.getText().toString().trim().length()< 10 || (!mobile.getText().toString().matches(mobilePattern))) {
+                errorTxt = "Enter valid 10 digit mobile number";
                 error++;
             }
         }
@@ -314,6 +352,9 @@ public class CheckoutActivity extends AppCompatActivity {
                                  * ANY OPERATION OVER SUCCESS RESULT
                                  */
 
+                                Intent intent=new Intent(CheckoutActivity.this,PaymentSuccess.class);
+                                startActivity(intent);
+
                                 if (checkout_res
                                         .getMerchantResponsePayload()
                                         .getPaymentMethod().getPaymentTransaction()
@@ -335,6 +376,9 @@ public class CheckoutActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),
                                         "Transaction Status - Failure",
                                         Toast.LENGTH_SHORT).show();
+
+                                Intent intent=new Intent(CheckoutActivity.this,PaymentFailure.class);
+                                startActivity(intent);
                             }
 
                         }
@@ -348,13 +392,12 @@ public class CheckoutActivity extends AppCompatActivity {
                                 .getMerchantResponsePayload().getPaymentMethod()
                                 .getPaymentTransaction().getErrorMessage()
                                 + "\nAmount : " + checkout_res
-                                .getMerchantResponsePayload().getPaymentMethod()			.getPaymentTransaction().getAmount()
+                                .getMerchantResponsePayload().getPaymentMethod().getPaymentTransaction().getAmount()
                                 + "\nDateTime : " + checkout_res.
                                 getMerchantResponsePayload().getPaymentMethod()
                                 .getPaymentTransaction().getDateTime()
                                 + "\nMerchantTransactionIdentifier : "
-                                + checkout_res.getMerchantResponsePayload()
-                                .getMerchantTransactionIdentifier()
+                                + checkout_res.getMerchantResponsePayload().getMerchantTransactionIdentifier()
                                 + "\nIdentifier : " + checkout_res
                                 .getMerchantResponsePayload().getPaymentMethod()
                                 .getPaymentTransaction().getIdentifier()
@@ -385,6 +428,13 @@ public class CheckoutActivity extends AppCompatActivity {
                                 + "\nSI MerchantAdditionalDetails : " + checkout_res
                                 .getMerchantResponsePayload()
                                 .getMerchantAdditionalDetails();
+
+                        session.storeVal("MerchantTransactionIdentifier",checkout_res.getMerchantResponsePayload().getMerchantTransactionIdentifier());
+                        session.storeVal("BankReferenceIdentifier",checkout_res.getMerchantResponsePayload().getPaymentMethod().getPaymentTransaction().getBankReferenceIdentifier());
+                        session.storeVal("BankSelectionCode",checkout_res.getMerchantResponsePayload().getPaymentMethod().getBankSelectionCode());
+                        session.storeVal("RefundIdentifier",checkout_res.getMerchantResponsePayload().getPaymentMethod().getPaymentTransaction().getRefundIdentifier());
+                        session.storeVal("pay_date",checkout_res.getMerchantResponsePayload().getPaymentMethod().getPaymentTransaction().getDateTime());
+                        session.storeVal("InstrumentAliasName",checkout_res.getMerchantResponsePayload().getPaymentMethod().getInstrumentAliasName());
 
                     } catch (Exception e) {
                         e.printStackTrace();

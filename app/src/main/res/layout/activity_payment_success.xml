@@ -1,330 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_payment_success"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:id="@id/activity_payment_success"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        tools:context="com.entrolabs.pay.PaymentSuccess">
-
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:id="@+id/success_bg"
-            android:background="#72C342">
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff72c342"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="20dp"
-
                 android:drawableTop="@drawable/ic_tick_round"
-                android:gravity="center_horizontal|center_vertical"
-                />
+                android:gravity="center"
+                android:paddingBottom="10.0dip"
+                android:paddingTop="20.0dip" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:textSize="16sp"
-                android:text="Payment is Successful!\n Payment Transaction ID: #12312312"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_horizontal|center_vertical"
                 android:id="@+id/success_message"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dip"
+                android:gravity="center"
                 android:maxLines="2"
-                />
+                android:text="Payment is Successful!\n Payment Transaction ID: #12312312"
+                android:textColor="#ffffffff"
+                android:textSize="16.0sp" />
         </LinearLayout>
 
-
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:orientation="vertical" android:layout_below="@id/success_bg"
-            android:background="#fff">
-
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/success_bg"
+            android:background="#ffffffff"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="8.0dip"
+                android:paddingRight="8.0dip">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.4"
-                    android:textColor="#333"
                     android:id="@+id/transaction_txt"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="2.0dip"
+                    android:paddingTop="4.0dip"
                     android:text="Payment ID"
-                    android:textSize="16sp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="2dp"
-
-                    />
+                    android:textColor="#ff333333"
+                    android:textSize="16.0sp" />
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:textColor="@color/colorPrimary"
                     android:id="@+id/transaction"
-                    android:textSize="16sp"
-                    android:text="Value"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
                     android:maxLines="2"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="4dp"
-                    />
-
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="4.0dip"
+                    android:paddingTop="4.0dip"
+                    android:text="Value"
+                    android:textColor="@color/appcolor"
+                    android:textSize="16.0sp" />
             </LinearLayout>
 
-
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="8.0dip"
+                android:paddingRight="8.0dip">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.4"
-                    android:textColor="#333"
                     android:id="@+id/bank_transaction_txt"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="2.0dip"
+                    android:paddingTop="4.0dip"
                     android:text="Bank Transaction ID"
-                    android:textSize="16sp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="2dp"
-
-                    />
+                    android:textColor="#ff333333"
+                    android:textSize="16.0sp" />
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:textColor="@color/colorPrimary"
                     android:id="@+id/bank_transaction"
-                    android:textSize="16sp"
-                    android:text="Value"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
                     android:maxLines="2"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="4dp"
-                    />
-
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="4.0dip"
+                    android:paddingTop="4.0dip"
+                    android:text="Value"
+                    android:textColor="@color/appcolor"
+                    android:textSize="16.0sp" />
             </LinearLayout>
 
-
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="8.0dip"
+                android:paddingRight="8.0dip">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.4"
-                    android:textColor="#333"
                     android:id="@+id/amount_txt"
-                    android:text="Billing Amount"
-                    android:textSize="16sp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="2dp"
-
-                    />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:textColor="@color/colorPrimary"
-                    android:id="@+id/amount"
-                    android:textSize="16sp"
-                    android:text="Value"
-                    android:maxLines="2"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="4dp"
-                    />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
-
-                <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="0.0dip"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
-                    android:textColor="#333"
-                    android:id="@+id/billing_name_txt"
-                    android:text="Billing Name"
-                    android:textSize="16sp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="2dp"
-
-                    />
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="2.0dip"
+                    android:paddingTop="4.0dip"
+                    android:text="Billing Amount"
+                    android:textColor="#ff333333"
+                    android:textSize="16.0sp" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:id="@+id/amount"
+                    android:layout_width="0.0dip"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
-                    android:textColor="@color/colorPrimary"
-                    android:id="@+id/billing_name"
-                    android:textSize="16sp"
-                    android:text="Value"
                     android:maxLines="2"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="4dp"
-                    />
-
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="4.0dip"
+                    android:paddingTop="4.0dip"
+                    android:text="Value"
+                    android:textColor="@color/appcolor"
+                    android:textSize="16.0sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
+                android:id="@+id/duelist"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="8.0dip"
+                android:paddingRight="8.0dip">
+
+                <TextView
+                    android:id="@+id/billing_name_txt"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="2.0dip"
+                    android:paddingTop="4.0dip"
+                    android:text="Billing Name"
+                    android:textColor="#ff333333"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@+id/billing_name"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:maxLines="2"
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="4.0dip"
+                    android:paddingTop="4.0dip"
+                    android:text="Value"
+                    android:textColor="@color/appcolor"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="8.0dip"
+                android:paddingRight="8.0dip"
                 android:visibility="gone">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.4"
-                    android:textColor="#333"
                     android:id="@+id/billing_email_txt"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="2.0dip"
+                    android:paddingTop="4.0dip"
                     android:text="Billing Email"
-                    android:textSize="16sp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="2dp"
-
-                    />
+                    android:textColor="#ff333333"
+                    android:textSize="16.0sp" />
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:textColor="@color/colorPrimary"
                     android:id="@+id/billing_email"
-                    android:textSize="16sp"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
                     android:maxLines="2"
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="4.0dip"
+                    android:paddingTop="4.0dip"
                     android:text="Value"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="4dp"
-                    />
-
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16.0sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="8.0dip"
+                android:paddingRight="8.0dip">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.4"
-                    android:textColor="#333"
                     android:id="@+id/billing_mobile_txt"
-                    android:text="Billing Mobile"
-                    android:textSize="16sp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="2dp"
-
-                    />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:textColor="@color/colorPrimary"
-                    android:id="@+id/billing_mobile"
-                    android:textSize="16sp"
-                    android:text="Value"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="4dp"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
-
-                <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="0.0dip"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
-                    android:textColor="#333"
-                    android:id="@+id/billing_purpose_txt"
-                    android:text="Payment Towards"
-                    android:textSize="16sp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="2dp"
-
-                    />
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="2.0dip"
+                    android:paddingTop="4.0dip"
+                    android:text="Billing Mobile"
+                    android:textColor="#ff333333"
+                    android:textSize="16.0sp" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:id="@id/billing_mobile"
+                    android:layout_width="0.0dip"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
-                    android:textColor="@color/colorPrimary"
-                    android:id="@+id/billing_purpose"
-                    android:textSize="16sp"
-                    android:text="Value" android:maxLines="4"
-
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingLeft="4dp"
-                    />
-
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="4.0dip"
+                    android:paddingTop="4.0dip"
+                    android:text="Value"
+                    android:textColor="@color/appcolor"
+                    android:textSize="16.0sp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="8.0dip"
+                android:paddingRight="8.0dip">
 
+                <TextView
+                    android:id="@+id/billing_purpose_txt"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="2.0dip"
+                    android:paddingTop="4.0dip"
+                    android:text="Payment Towards"
+                    android:textColor="#ff333333"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@+id/billing_purpose"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:maxLines="4"
+                    android:paddingBottom="4.0dip"
+                    android:paddingLeft="4.0dip"
+                    android:paddingTop="4.0dip"
+                    android:text="Value"
+                    android:textColor="@color/appcolor"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Go To Home"
                 android:id="@+id/button_back"
-
-                android:textColor="#fff"
-                android:textSize="16sp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-
-                android:paddingLeft="10dp"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp"
-                android:paddingRight="10dp"
+                android:layout_marginTop="16.0dip"
                 android:background="@color/colorAccent"
-                android:layout_marginTop="16dp" />
+                android:paddingBottom="2.0dip"
+                android:paddingLeft="10.0dip"
+                android:paddingRight="10.0dip"
+                android:paddingTop="2.0dip"
+                android:text="Go To Home"
+                android:textColor="#ffffffff"
+                android:textSize="16.0sp" />
         </LinearLayout>
-
-
     </RelativeLayout>
 </ScrollView>

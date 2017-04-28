@@ -96,12 +96,14 @@ public class GrevienceDetailAdapter extends RecyclerView.Adapter<GrevienceDetail
 
 
         holder.repdate.setText(time);
+        holder.id.setText(ci.grievance_id);
 
 
         holder.tv1.setTypeface(head);
         holder.tv2.setTypeface(head);
         holder.tv3.setTypeface(head);
         holder.tv4.setTypeface(head);
+        holder.tv0.setTypeface(head);
 
     }
 
@@ -112,10 +114,12 @@ public class GrevienceDetailAdapter extends RecyclerView.Adapter<GrevienceDetail
 
     public static class FeedViewHolder extends RecyclerView.ViewHolder {
 
-        protected TextView reply,tv1,tv2,tv3,tv4;
+        protected TextView reply,tv1,tv2,tv3,tv4,tv0;
         protected TextView repname;
         protected TextView repdate;
         protected TextView repstatus;
+        protected TextView id;
+
 
         public FeedViewHolder(View v) {
             super(v);
@@ -128,7 +132,8 @@ public class GrevienceDetailAdapter extends RecyclerView.Adapter<GrevienceDetail
             tv2=(TextView)v.findViewById(R.id.tv2);
             tv3=(TextView)v.findViewById(R.id.tv3);
             tv4=(TextView)v.findViewById(R.id.tv4);
-
+            tv0=(TextView)v.findViewById(R.id.tv0);
+            id=(TextView)v.findViewById(R.id.id);
         }
     }
 }

@@ -105,7 +105,7 @@
 
         <activity android:name=".entrolab.representative.NewsDetails"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/ActionTheme"/>
 
         <activity android:name=".entrolab.representative.PaymentHistory"
             android:screenOrientation="portrait"
@@ -242,11 +242,11 @@
 
         <activity android:name=".payments.PaymentFailure"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/ActionTheme"/>
 
         <activity android:name=".payments.PaymentSuccess"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/ActionTheme"/>
 
 
 

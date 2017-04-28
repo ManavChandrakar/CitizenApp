@@ -288,8 +288,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#333333"
-                android:background="#dfdfdf"
                 android:layout_marginLeft="10dp"
+                android:paddingLeft="0dp"
                 android:layout_marginRight="10dp"
                 android:hint="Grievance Details"/>
 
@@ -334,8 +334,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#333333"
-                android:background="#dfdfdf"
                 android:layout_marginLeft="10dp"
+                android:paddingLeft="0dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
                 android:hint="Landmarks"/>

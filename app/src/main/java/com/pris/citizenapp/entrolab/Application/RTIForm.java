@@ -29,6 +29,10 @@ import org.json.JSONObject;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static com.pris.citizenapp.common.SessionManager.USER_EMAIL;
+import static com.pris.citizenapp.common.SessionManager.USER_FULL_NAME;
+import static com.pris.citizenapp.common.SessionManager.USER_MOBILE;
+
 /**
  * Created by manav on 11/4/17.
  */
@@ -66,7 +70,10 @@ public class RTIForm extends AppCompatActivity {
         tv6.setTypeface(head);
         name=(EditText)findViewById(R.id.Name);
         mobile=(EditText)findViewById(R.id.mobile);
+        mobile.setText(USER_MOBILE);
+        name.setText(session.getStrVal(USER_FULL_NAME));
         mail=(EditText)findViewById(R.id.mail);
+        mail.setText(session.getStrVal(USER_EMAIL));
         fat_hus=(EditText)findViewById(R.id.father_husband);
         address=(EditText)findViewById(R.id.editdetails);
         inforamtion=(EditText)findViewById(R.id.landmark);

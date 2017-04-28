@@ -51,8 +51,10 @@ public class MarriageCft extends AppCompatActivity {
 
         session=new SessionManager(this);
         assessNo=(EditText)findViewById(R.id.assesno);
+        assessNo.setHint("Enter aadhar number/mobile number");
         button=(Button)findViewById(R.id.btnsubmit);
         tv1=(TextView)findViewById(R.id.tv1);
+        tv1.setText("Aadhar Number/Mobile Number");
         tv1.setTypeface(head);
         button.setTypeface(head);
 

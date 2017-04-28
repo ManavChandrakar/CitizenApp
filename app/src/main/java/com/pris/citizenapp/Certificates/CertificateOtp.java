@@ -56,7 +56,7 @@ public class CertificateOtp extends AppCompatActivity {
                 .positiveText("Ok").build();
 
         progDialog = new MaterialDialog.Builder(this)
-                .title("please wait...")
+                .title("Contacting server...")
                 .content("...")
                 .progress(true, 0).build();
         Typeface rl = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -73,9 +74,9 @@ public class Grevancedetails extends AppCompatActivity implements OnMapReadyCall
 
        if(challenge.size()==0)
        {
-           popalert.show();
+           Toast.makeText(this,"No Replies Found",Toast.LENGTH_LONG).show();
        }
-       GrevienceDetailAdapter ca = new GrevienceDetailAdapter(challenge,this);
+        GrevienceDetailAdapter ca = new GrevienceDetailAdapter(challenge,this);
         recList.setAdapter(ca);
         ca.notifyDataSetChanged();
         loc.setText(session.getStrVal("currentlocation"));

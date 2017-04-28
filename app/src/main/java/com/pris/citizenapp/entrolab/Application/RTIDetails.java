@@ -40,7 +40,7 @@ public class RTIDetails extends AppCompatActivity {
         setSupportActionBar(toolbar);
         session = new SessionManager(this);
 
-        ArrayList<Replies> challenge = this.getIntent().getExtras().getParcelableArrayList("arraydetailstap");
+        ArrayList<Replies> challenge = this.getIntent().getExtras().getParcelableArrayList("arraydetailsrti");
         recList = (RecyclerView)  findViewById(R.id.myrecyclerView);
         recList.setHasFixedSize(true);
 

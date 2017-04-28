@@ -171,12 +171,12 @@ public class PrivateTapApply extends AppCompatActivity {
         else{
 
 
-            Toast.makeText(this,"No Updates Found",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"No Records Found",Toast.LENGTH_SHORT).show();
 
         }
 
         if(li == 0){
-            Toast.makeText(this,"No Updates Found",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"No Records Found",Toast.LENGTH_SHORT).show();
 
         }
 

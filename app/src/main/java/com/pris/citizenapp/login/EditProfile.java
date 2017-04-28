@@ -311,6 +311,9 @@ public class EditProfile extends AppCompatActivity {
                                     Log.d("Selected", String.valueOf(text) + " - " + which);
                                     String selected = String.valueOf(text);
                                     district.setText(String.valueOf(text));
+                                    div.clear();
+                                    Mand.clear();
+                                    panch.clear();
                                     division.setText("");
                                     division.setHint("Division");
                                     mandal.setText("");
@@ -327,7 +330,7 @@ public class EditProfile extends AppCompatActivity {
                                         Map<String, String> params1 = new LinkedHashMap<String, String>();
                                         params1.put("getDivisions", "true");
                                         params1.put("district", uid);
-                                        new webService().execute(params1);
+                                        new webServiceinitial().execute(params1);
                                     }
 
                                     dialog.hide();
@@ -359,6 +362,8 @@ public class EditProfile extends AppCompatActivity {
                                         Log.d("Selected", String.valueOf(text) + " - " + which);
                                         String selected = String.valueOf(text);
                                         division.setText(String.valueOf(text));
+                                        Mand.clear();
+                                        panch.clear();
                                         mandal.setText("");
                                         mandal.setHint("Mandal");
                                         panchayat.setText("");
@@ -376,7 +381,7 @@ public class EditProfile extends AppCompatActivity {
                                                 params2.put("getMandals", "true");
                                                 params2.put("district", session.getStrVal("district"));
                                                 params2.put("division", uid);
-                                                new webService().execute(params2);
+                                                new webServiceinitial().execute(params2);
                                             }
                                         }
                                         dialog.hide();
@@ -413,6 +418,7 @@ public class EditProfile extends AppCompatActivity {
                                         Log.d("Selected", String.valueOf(text) + " - " + which);
                                         String selected = String.valueOf(text);
                                         mandal.setText(String.valueOf(text));
+                                        panch.clear();
                                         panchayat.setText("");
                                         panchayat.setHint("Panchayat");
                                         String uid = mapMand.get(selected);
@@ -428,7 +434,7 @@ public class EditProfile extends AppCompatActivity {
                                                 params3.put("district", session.getStrVal("district"));
                                                 params3.put("division", session.getStrVal("division"));
                                                 params3.put("mandal", uid);
-                                                new webService().execute(params3);
+                                                new webServiceinitial().execute(params3);
                                             }
                                         }
                                         return true;
@@ -648,15 +654,13 @@ public class EditProfile extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Map... params) {
-
             return postData(params[0]);
         }
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            //   progDialog.show();
-
+            //progDialog.show();
         }
 
         protected void onPostExecute(String response){
@@ -877,6 +881,141 @@ public class EditProfile extends AppCompatActivity {
 
                 response = HttpRequest.post(getResources().getString(R.string.url_district)).form(data).body();
 
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            return response;
+
+        }
+    }
+
+
+    private class webServiceinitial extends AsyncTask<Map, Integer, String>
+    {
+
+
+        @Override
+        protected String doInBackground(Map... params) {
+            return postData(params[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            //progDialog.show();
+        }
+
+        protected void onPostExecute(String response){
+
+            //     progDialog.dismiss();
+
+            JSONObject result = null;
+
+            Log.d("result",response);
+
+            try {
+                result = new JSONObject(response);
+                String res = result.getString("result");
+
+                if(res.trim().equals("success")) {
+                    Log.d("webService", "HTTP Request Result: " + response);
+
+
+                    if (result.has("districts")) {
+
+                        JSONArray array = result.getJSONArray("districts");
+                        mapdist = new HashMap<String, String>();
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject obj = array.getJSONObject(i);
+                            String d = obj.getString("district");
+                            String uid = obj.getString("uid");
+                            dist.add(obj.getString("district"));
+                            mapdist.put(d, uid);
+                         //   newmapdist.put(uid,d);
+                        }
+
+                        //district.setText(newmapdist.get(session.getStrVal("district")));
+                        Log.d("ARRAYLIST", String.valueOf(mapdist));
+
+                    }
+
+                    if (result.has("divisions")) {
+
+                        JSONArray array = result.getJSONArray("divisions");
+                        mapdiv = new HashMap<String, String>();
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject obj = array.getJSONObject(i);
+                            String d = obj.getString("division");
+                            String uid = obj.getString("uid");
+                            div.add(d);
+                            mapdiv.put(d, uid);
+                        //    newmapdiv.put(uid,d);
+
+                        }
+                       // division.setText(newmapdiv.get(session.getStrVal("division")));
+                        Log.d("ARRAYLIST", String.valueOf(mapdiv));
+
+                    }
+
+                    if (result.has("mandals")) {
+
+                        JSONArray array = result.getJSONArray("mandals");
+                        mapMand = new HashMap<String, String>();
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject obj = array.getJSONObject(i);
+                            String d = obj.getString("mandal");
+                            String uid = obj.getString("uid");
+                            Mand.add(d);
+                            mapMand.put(d, uid);
+                          ///  newmapMand.put(uid,d);
+                        }
+                      //  mandal.setText(newmapMand.get(session.getStrVal("mandal")));
+                        Log.d("ARRAYLIST", String.valueOf(mapMand));
+
+                    }
+
+                    if (result.has("panchayats")) {
+
+                        JSONArray array = result.getJSONArray("panchayats");
+                        mappach= new HashMap<String, String>();
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject obj = array.getJSONObject(i);
+                            String d = obj.getString("panchayat");
+                            String uid = obj.getString("panchayat_id");
+                            panch.add(d);
+                            mappach.put(d, uid);
+                        }
+                        //panchayat.setText(newmappach.get(session.getStrVal("panchayat")));
+                        Log.d("ARRAYLIST", String.valueOf(mappach));
+
+                    }
+                }
+                else{
+                    popAlert.setTitle("Oops! Errors Found");
+                    popAlert.setContent(result.getString("error"));
+                    popAlert.show();
+                }
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+        protected void onProgressUpdate(Integer... progress){
+
+            //  progDialog.setProgress(progress[0]);
+        }
+
+        public String postData(Map data) {
+
+            String response = "";
+
+            try {
+                response = HttpRequest.post(getResources().getString(R.string.url_district)).form(data).body();
             } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

@@ -103,6 +103,7 @@ public class GrievancedAdapter extends RecyclerView.Adapter<GrievancedAdapter.Fe
                 session.storeVal("currentlocation",ci.location);
                 Intent i=new Intent(context,Grevancedetails.class);
                 Bundle bundle = new Bundle();
+                bundle.putString("g_id",ci.grievance_id);
                 bundle.putParcelableArrayList("arraydetails", ci.replies);
                 i.putExtras(bundle);
                 context.startActivity(i);

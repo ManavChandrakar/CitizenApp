@@ -129,9 +129,9 @@
             <EditText
                 android:id="@+id/editdetails"
                 style="@style/textinputlayoutedittext_style"
+                android:paddingLeft="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#dfdfdf"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:hint="Address"/>
@@ -176,7 +176,7 @@
                 style="@style/textinputlayoutedittext_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#dfdfdf"
+                android:paddingLeft="0dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:hint="Information"/>

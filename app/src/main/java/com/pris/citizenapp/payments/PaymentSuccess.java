@@ -1,5 +1,6 @@
 package com.pris.citizenapp.payments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -7,8 +8,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +23,7 @@ import com.pris.citizenapp.common.SessionManager;
 import com.pris.citizenapp.entrolab.FooterMain;
 import com.pris.citizenapp.github.kevinsawicki.http.HttpRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,6 +40,7 @@ public class PaymentSuccess extends AppCompatActivity {
     private MaterialDialog progress;
     private SessionManager session;
     public MaterialDialog dialog;
+    LinearLayout due_list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +53,7 @@ public class PaymentSuccess extends AppCompatActivity {
 
         setTitle("Payment Successful");
 
+        due_list=(LinearLayout)findViewById(R.id.duelist);
         TextView success_msg = (TextView) findViewById(R.id.success_message);
         success_msg.setTypeface(head);
         TextView order_id = (TextView) findViewById(R.id.transaction);
@@ -95,16 +102,50 @@ public class PaymentSuccess extends AppCompatActivity {
                 })
                 .contentColor(getResources().getColor(R.color.appcolor)).build();
 
-        order_id.setText(session.getStrVal("mer_txn"));
-        bank_transaction.setText(session.getStrVal("banktxn"));
+
+
+        //inflate the layout for yearwise billdetails
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v;
+
+        try {
+            JSONObject jsonObject=new JSONObject(session.getStrVal("dues_selected"));
+            JSONArray jsonArray=new JSONArray(session.getStrVal("jsonArray"));
+
+            for(int i=0;i<jsonArray.length();i++)
+            {
+                if(jsonObject.has(jsonArray.getString(i)))
+                {
+
+                    View row_view = (View) inflater.inflate(R.layout.linflate_payment_success,null);
+
+
+                    TextView due_year = (TextView) row_view.findViewById(R.id.due_year);
+                    TextView due_amount = (TextView) row_view.findViewById(R.id.due_amount);
+                    due_amount.setTypeface(head);
+
+
+                    due_year.setText(jsonArray.getString(i));
+                    due_year.setTypeface(head);
+                    due_amount.setText(jsonObject.getString(jsonArray.getString(i)));
+                    due_list.addView(row_view);
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        order_id.setText(session.getStrVal("MerchantTransactionIdentifier"));
+        bank_transaction.setText(session.getStrVal("BankReferenceIdentifier"));
 
         amount.setText(session.getStrVal("pay_amount"));
         name.setText(session.getStrVal("pay_name"));
-        email.setText(session.getStrVal("pay_email"));
+        email.setText(session.getStrVal("payment_mail"));
         mobile.setText(session.getStrVal("pay_mobile"));
         purpose.setText(session.getStrVal("pay_purpose"));
 
-        success_msg.setText("Payment is Successful!\n Payment Transaction ID: #"+session.getStrVal("mer_txn"));
+        success_msg.setText("Payment is Successful!\n Payment Transaction ID: #"+session.getStrVal("MerchantTransactionIdentifier"));
 
 
 
@@ -120,35 +161,32 @@ public class PaymentSuccess extends AppCompatActivity {
             params.put("pay_email", session.getStrVal("pay_email"));
             params.put("pay_purpose", session.getStrVal("pay_purpose"));
             params.put("pay_name", session.getStrVal("pay_name"));
-            params.put("mer_txn",session.getStrVal("mer_txn"));
-            params.put("banktxn",session.getStrVal("banktxn"));
             params.put("pay_assessment",session.getStrVal("pay_assessment"));
             params.put("pay_hid",session.getStrVal("pay_hid"));
 
-
-            params.put("pay_ddno",session.getStrVal("pay_ddno"));
-            params.put("pay_bankname",session.getStrVal("pay_bankname"));
-            params.put("pay_date",session.getStrVal("pay_date"));
-            params.put("dues_selected",session.getStrVal("dues_selected"));
-
+            params.put("MerchantTransactionIdentifier",session.getStrVal("MerchantTransactionIdentifier"));
+            params.put("BankReferenceIdentifier",session.getStrVal("BankReferenceIdentifier"));
+            params.put("BankSelectionCode",session.getStrVal("BankSelectionCode"));
+            params.put("RefundIdentifier",session.getStrVal("RefundIdentifier"));
+            params.put("pay_date",session.getStrVal("DateTime"));
             params.put("pay_type",session.getStrVal("pay_type"));
-
             params.put("dues_selected",session.getStrVal("dues_selected"));
-
-            params.put("result","success");
-            params.put("pay_status","1");
-
-
+            params.put("InstrumentAliasName",session.getStrVal("InstrumentAliasName"));
             params.put("username",session.getStrVal("username"));
 
-            if(session.hasVal("mandal"))
+/*            if(session.hasVal("mandal"))
                 params.put("mandal",session.getStrVal("mandal"));
             if(session.hasVal("division"))
                 params.put("division",session.getStrVal("division"));
             if(session.hasVal("panchayat"))
                 params.put("panchayat",session.getStrVal("panchayat"));
             if(session.hasVal("district"))
-                params.put("district",session.getStrVal("district"));
+                params.put("district",session.getStrVal("district"));*/
+
+         //check at the time od deployment
+
+            session.removeVal("dues_selected");
+            session.removeVal("jsonArray");
 
 
             String deviceParams = "Device:"+ Build.DEVICE;
@@ -159,7 +197,7 @@ public class PaymentSuccess extends AppCompatActivity {
 
             params.put("deviceinfo",deviceParams);
 
-            new webService().execute(params);
+     //       new webService().execute(params);
 
         }
         else{

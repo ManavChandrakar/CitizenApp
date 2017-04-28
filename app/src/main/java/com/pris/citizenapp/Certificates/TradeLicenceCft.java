@@ -50,9 +50,11 @@ public class TradeLicenceCft extends AppCompatActivity {
         Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
 
         tv1=(TextView)findViewById(R.id.tv1);
+        tv1.setText("HT Assesement No./ Licence No.");
         tv1.setTypeface(head);
         session=new SessionManager(this);
         assessNo=(EditText)findViewById(R.id.assesno);
+        assessNo.setHint("Enter HT assesement no./ licence no.");
         button=(Button)findViewById(R.id.btnsubmit);
         button.setTypeface(head);
 

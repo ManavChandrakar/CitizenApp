@@ -58,7 +58,7 @@ public class RegisterOtp extends AppCompatActivity {
                 .positiveText("Ok").build();
 
         progDialog = new MaterialDialog.Builder(this)
-                .title("Registering your account")
+                .title("Contacting server")
                 .content("...")
                 .progress(true, 0).build();
         Typeface rl = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");

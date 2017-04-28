@@ -29,9 +29,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/tooltext"
             android:text="Manav Chandrakar"
+            android:maxEms="15"
+            android:ellipsize="end"
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="#ffffff"
+            android:maxLines="1"
             android:layout_margin="10dp"
             android:layout_gravity="center"
             />
