@@ -76,7 +76,7 @@ public class PrivateTapAdapter extends RecyclerView.Adapter<PrivateTapAdapter.Fe
 
         String ttime = new SimpleDateFormat("MMM dd, yyyy h:ma").format(ttimr);
         feedViewHolder.ttime.setText(ttime);
-
+/*
 
         String stat="";
 
@@ -97,9 +97,9 @@ public class PrivateTapAdapter extends RecyclerView.Adapter<PrivateTapAdapter.Fe
         else if(ci.status.equals("4"))
         {
             stat="Rejected";
-        }
+        }*/
 
-        feedViewHolder.status.setText(stat);
+        feedViewHolder.status.setText(ci.status);
 
 
         long timestand = 1;

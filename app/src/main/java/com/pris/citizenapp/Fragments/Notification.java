@@ -49,7 +49,7 @@ public class Notification extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.member_recycle,container,false);
+        View v=inflater.inflate(R.layout.myrecycleone,container,false);
         toolbar=(Toolbar)v.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         getActivity().setTitle("Notification");
@@ -120,7 +120,8 @@ public class Notification extends Fragment {
                         ci.title = place.getString("title");
                         ci.description = place.getString("description");
                         ci.link = place.getString("link");
-                        ci.download = place.getString("download");
+                      //  ci.tag=place.getString("tag");
+                      //  ci.download = place.getString("download");
                       //  ci.Iurl=place.getString("Image_url");
                         result.add(ci);
                         //}
@@ -168,9 +169,7 @@ public class Notification extends Fragment {
             Map<String, String> params = new LinkedHashMap<String, String>();
 
             params.put("getNotices","true");
-//            params.put("username",session.getStrVal("username"));
-
-
+            params.put("username",session.getStrVal("username"));
             String deviceParams = "Device:"+ Build.DEVICE;
             deviceParams+=" - Display:"+Build.DISPLAY;
             deviceParams+=" - Manufacturer:"+Build.MANUFACTURER;
@@ -201,7 +200,6 @@ public class Notification extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
             //  progress.show();
         }
 

@@ -72,7 +72,7 @@ public class RTIDetailsAdapter extends RecyclerView.Adapter<RTIDetailsAdapter.Fe
         holder.tv0.setText("Application id :");
         holder.id.setText(ci.grievance_id);
 
-        String stat="";
+   /*     String stat="";
 
         if(ci.status.equals("1"))
         {
@@ -91,8 +91,8 @@ public class RTIDetailsAdapter extends RecyclerView.Adapter<RTIDetailsAdapter.Fe
         else if(ci.status.equals("4"))
         {
             stat="Rejected";
-        }
-        holder.repstatus.setText("stat");
+        }*/
+        holder.repstatus.setText(ci.status);
 
         long timestand = 1;
         if (ci.timestamp.length() > 0) {

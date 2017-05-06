@@ -1,10 +1,12 @@
 package com.pris.citizenapp.adapters;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.bumptech.glide.Glide;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.pris.citizenapp.R;
 import com.pris.citizenapp.common.SessionManager;
@@ -87,6 +90,8 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.FeedViewHo
 
 
         Typeface head = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto_Light.ttf");
+      //  Typeface head = Typeface.createFromAsset(context.getAssets(), "fonts/Tkn.ttf");
+
         Typeface desc = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Thin.ttf");
 
         feedViewHolder.title.setTypeface(head);
@@ -96,31 +101,31 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.FeedViewHo
         feedViewHolder.url.setTypeface(desc);
         feedViewHolder.download.setTypeface(desc);
 
-        Log.d("Notice",ci.link+" - "+ci.download);
+      //  Log.d("Notice",ci.link+" - "+ci.download);
 
 
         if(ci.link.length() > 0 && ci.link != null){
 
             final String link = ci.link;
 
-            feedViewHolder.url.setVisibility(View.VISIBLE);
-            feedViewHolder.url.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            feedViewHolder.imagview.setVisibility(View.VISIBLE);
 
-                    try {
-                        new FinestWebView.Builder(context).show(link);
-                    }catch (Exception e){
-                        Toast.makeText(context,"Cannot Open Link",Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-
+            if(!(TextUtils.isEmpty(ci.link))) {
+                Glide.with(context)
+                        .load(ci.link)
+                        .into(feedViewHolder.imagview);
+            }
 
         }
 
+        else
+        {
+            feedViewHolder.imagview.setVisibility(View.GONE);
+        }
 
-        if(ci.download.length() > 0 && ci.download != null){
+
+
+        /*if(ci.download.length() > 0 && ci.download != null){
 
             final String download = ci.download;
             feedViewHolder.download.setVisibility(View.VISIBLE);
@@ -133,7 +138,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.FeedViewHo
             });
 
 
-        }
+        }*/
 
 
         //check for any images from the api and set it on image view using glide
@@ -144,14 +149,48 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.FeedViewHo
         feedViewHolder.descrtiption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDialog(dat);
 
+                //click activity for complete layout
+              //  openDialog(dat);
+                if(!(TextUtils.isEmpty(dat.tag)))
+                {
+
+                   // Intent nintent = new Intent(context, Notification.class);
+
+                    try {
+                        if (dat.tag.equals("notice")) {
+                        //    nintent = new Intent(context, Notifications.class);
+
+                        }
+                        else if (dat.tag.equals("news")) {
+                        //    nintent = new Intent(context, News.class);
+
+                        }
+                        else if (dat.tag.equals("events")) {
+                       //     nintent = new Intent(context, Events.class);
+
+                        }
+                        else if (dat.tag.equals("awards")) {
+                         //   nintent = new Intent(context, Awards.class);
+
+                        }
+                        else if (dat.tag.equals("inbox")) {
+                       //     nintent = new Intent(context, Inbox.class);
+
+                        }
+                    }
+                    catch (NullPointerException e){
+                        e.printStackTrace();
+                    }
+
+
+                //    PendingIntent pIntent = PendingIntent.getActivity(this, 0, nintent, 0);
+                }
             }
         });
-
-
     }
 
+/*
     protected   void openDialog(Notice ci){
 
         boolean wrapInScrollView = true;
@@ -204,7 +243,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.FeedViewHo
             url.setTypeface(desc);
             download.setTypeface(desc);
 
-            Log.d("Notice",ci.link+" - "+ci.download);
+          //  Log.d("Notice",ci.link+" - "+ci.download);
             if(ci.link.length() > 0 && ci.link != null){
 
 
@@ -222,7 +261,8 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.FeedViewHo
             }
 
 
-            if(ci.download.length() > 0 && ci.download != null){
+           */
+/* if(ci.download.length() > 0 && ci.download != null){
 
                 download.setVisibility(View.VISIBLE);
                 final String downloadfile = ci.download;
@@ -234,13 +274,15 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.FeedViewHo
                 });
 
 
-            }
+            }*//*
+
 
         }
 
 
 
     }
+*/
 
 
 

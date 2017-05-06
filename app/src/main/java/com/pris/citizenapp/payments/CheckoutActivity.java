@@ -34,6 +34,7 @@ import java.util.Date;
 import java.util.Random;
 
 import static com.pris.citizenapp.common.SessionManager.USER_EMAIL;
+import static com.pris.citizenapp.common.SessionManager.USER_FULL_NAME;
 
 /**
  * Created by manav on 14/4/17.
@@ -54,16 +55,13 @@ public class CheckoutActivity extends AppCompatActivity {
     protected TextView aadhar;
     protected TextView aadhar_txt;
     protected TextView total,header;
-    protected TextView total_txt,mailtxt,mobiletxt;
-    EditText mail,mobile;
-
+    protected TextView total_txt,mailtxt,mobiletxt,nametxt,addresstxt;
+    EditText mail,mobile,name,address;
     protected LinearLayout duelist;
     protected TextView paynow;
-
     protected int final_total;
     Toolbar toolbar;
-
-   SessionManager session;
+    SessionManager session;
 
 
     protected RelativeLayout fullView;
@@ -73,9 +71,10 @@ public class CheckoutActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.checkout_page);
-        toolbar=(Toolbar)findViewById(R.id.toolbar);
+      /*  toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Proceed to Payment");
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);*/
+        setTitle("Proceed to Payment");
         Typeface head = Typeface.createFromAsset(getAssets(), "fonts/Roboto_Light.ttf");
 
         aadhar=(TextView)findViewById(R.id.aadhar);
@@ -89,9 +88,13 @@ public class CheckoutActivity extends AppCompatActivity {
         citizen.setTypeface(head);
         mail=(EditText)findViewById(R.id.mail);
         mobile=(EditText)findViewById(R.id.mobile);
-        mailtxt=(TextView) findViewById(R.id.email);
+        mailtxt=(TextView) findViewById(R.id.emailtxt);
         mailtxt.setTypeface(head);
-        mobiletxt=(TextView) findViewById(R.id.phone);
+        mobiletxt=(TextView) findViewById(R.id.mobiletxt);
+        nametxt=(TextView) findViewById(R.id.nametxt);
+        nametxt.setTypeface(head);
+        addresstxt=(TextView)findViewById(R.id.addresstxt);
+        addresstxt.setTypeface(head);
         mobiletxt.setTypeface(head);
 
         father = (TextView) findViewById(R.id.father_name);
@@ -103,6 +106,8 @@ public class CheckoutActivity extends AppCompatActivity {
         total_txt = (TextView)  findViewById(R.id.total_txt);
         total_txt.setTypeface(head);
         header=(TextView)findViewById(R.id.taxtype);
+        name=(EditText)findViewById(R.id.name);
+        address=(EditText)findViewById(R.id.address);
 
         duelist = (LinearLayout)  findViewById(R.id.duelist);
         paynow = (TextView)  findViewById(R.id.pay_now);
@@ -120,11 +125,12 @@ public class CheckoutActivity extends AppCompatActivity {
         father.setText(session.getStrVal("father"));
         total.setText(session.getStrVal("pay_amount"));
         mail.setText(session.getStrVal(USER_EMAIL));
+
         citizen.setText(session.getStrVal("pay_name"));
         mobile.setText(session.getStrVal("pay_mobile"));
         assessment.setText(session.getStrVal("pay_assessment"));
         header.setText(session.getStrVal("pay_purpose"));
-
+        name.setText(session.getStrVal(USER_FULL_NAME));
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v;
 
@@ -251,6 +257,13 @@ public class CheckoutActivity extends AppCompatActivity {
             }
         }
 
+        if(name.getText().toString().trim().length()==0 && error==0)
+        {
+
+                errorTxt = "Name field cannot be empty";
+                error++;
+        }
+
         String mobilePattern = "^([7-8-9]{1}[0-9]{9})+$";
         if (error == 0) {
             if (mobile.getText().toString().trim().length() == 0 ) {
@@ -274,7 +287,6 @@ public class CheckoutActivity extends AppCompatActivity {
             return false;
 
         }
-
 
         return true;
     }

@@ -128,7 +128,7 @@
 
             <EditText
                 android:id="@+id/editdetails"
-                style="@style/textinputlayoutedittext_style"
+                android:background="@drawable/edittext_bg"
                 android:paddingLeft="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
 
             <EditText
                 android:id="@+id/landmark"
-                style="@style/textinputlayoutedittext_style"
+                android:background="@drawable/edittext_bg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="0dp"

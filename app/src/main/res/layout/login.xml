@@ -165,13 +165,12 @@
 
 <ImageButton
     android:id="@+id/googleLogin"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
     android:layout_weight="1"
     android:background="#ffffff"
-    android:paddingTop="5dp"
-    android:paddingBottom="5dp"
-    android:src="@mipmap/ic_launcher"/>
+    android:scaleType="centerCrop"
+    android:src="@drawable/google"/>
 
       <View
           android:layout_width="15dp"
@@ -179,13 +178,12 @@
 
     <ImageButton
         android:id="@+id/facebookLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_weight="1"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:scaleType="centerCrop"
         android:background="#ffffff"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@drawable/flogin"/>
       </LinearLayout>
 
      <TextView

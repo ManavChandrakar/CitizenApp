@@ -14,6 +14,16 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
 
+    <!-- GCM permission -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <permission
+        android:name="com.pris.citizenapp.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.pris.citizenapp.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+
+
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" >
@@ -227,13 +237,17 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
+        <activity android:name=".login.LinkedProperty"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
 
 
         <activity
             android:name="com.pris.citizenapp.payments.CheckoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:theme="@style/ActionTheme"
             android:windowSoftInputMode="stateHidden" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -310,6 +324,22 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/mapid" />
+
+
+
+        <!--GCM                       -->
+
+        <receiver
+            android:name="com.pris.citizenapp.gcm.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.entrolabs.gcm" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.pris.citizenapp.gcm.GcmMessageHandler" />
 
     </application>
 

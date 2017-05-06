@@ -12,5 +12,6 @@ public class Notice {
     public String description;
     public String timestamp;
     public String link;
-    public String download;
+    public String tag;
+ //   public String download;
 }

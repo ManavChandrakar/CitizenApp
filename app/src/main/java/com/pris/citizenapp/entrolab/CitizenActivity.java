@@ -1,13 +1,18 @@
 package com.pris.citizenapp.entrolab;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +20,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.pris.citizenapp.Certificates.BirthCft;
 import com.pris.citizenapp.Certificates.DeathCft;
 import com.pris.citizenapp.Certificates.MarriageCft;
@@ -39,13 +46,21 @@ import com.pris.citizenapp.entrolab.representative.ElectedWing;
 import com.pris.citizenapp.entrolab.representative.News;
 import com.pris.citizenapp.entrolab.representative.PublicServants;
 import com.pris.citizenapp.entrolab.representative.YellowPage;
+import com.pris.citizenapp.github.kevinsawicki.http.HttpRequest;
+import com.pris.citizenapp.login.Login;
 import com.pris.citizenapp.payments.CheckoutActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import pub.devrel.easypermissions.EasyPermissions;
 
 import static com.pris.citizenapp.common.SessionManager.USER_FULL_NAME;
 
@@ -53,7 +68,14 @@ import static com.pris.citizenapp.common.SessionManager.USER_FULL_NAME;
  * Created by manav on 16/4/17.
  */
 
-public class CitizenActivity extends Fragment {
+public class CitizenActivity extends Fragment implements EasyPermissions.PermissionCallbacks {
+
+
+    //GCM
+    private GoogleCloudMessaging gcm;
+    private String regid;
+    private String PROJECT_NUMBER = "1085132301476";
+
 
     ImageView news,Elected,publicservent,yellowPage,tax1,privatetap,kolagaaram,advertisement,trade,auction;
     ImageView grievance,rti,ptapsapply,property_certificate,marriage_certificate,birthcertificate,death_certificate,trade_certificate;
@@ -65,6 +87,9 @@ public class CitizenActivity extends Fragment {
     CustomSwipeAdapter customSwipeAdapter;
     ArrayList<String>all;
     TextView tv1,tv2,tv3,tv4,tv01,tv02,tv03,tv04,tv05,tv06,tv07,tv08,tv09,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18;
+
+    final String[] perms = {Manifest.permission.INTERNET,Manifest.permission.ACCESS_NETWORK_STATE,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WAKE_LOCK};
+
 
     @Nullable
     @Override
@@ -331,6 +356,188 @@ public class CitizenActivity extends Fragment {
                 startActivity(intent);
             }
         });
+
+
+        if(methodRequiresPermission(perms,111)) {
+
+            getRegId();
+        }
+        else{
+            Toast.makeText(view.getContext(),"Please Grant required app permissions!!",Toast.LENGTH_SHORT).show();
+        }
+
     }
+
+    public boolean methodRequiresPermission(String[] perms, int permission) {
+
+        if (EasyPermissions.hasPermissions(getContext(), perms)) {
+            // Already have permission, do the thing
+            // ...
+            return true;
+        } else {
+            // Do not have permissions, request them now
+            EasyPermissions.requestPermissions(this, "Need these permissions",
+                    permission, perms);
+        }
+
+        return false;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(requestCode,permissions,grantResults,this);
+
+    }
+
+
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+
+        if(requestCode==111)
+        {
+            getRegId();
+        }
+
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+        Toast.makeText(getContext(), "Please Grant required app permissions!!", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void getRegId() {
+
+        new AsyncTask<Void, Void, String>() {
+            @Override
+            protected String doInBackground(Void... params) {
+                String msg = "";
+                try {
+                    if (gcm == null) {
+                        gcm = GoogleCloudMessaging.getInstance(getActivity().getApplicationContext());
+                    }
+                    regid = gcm.register(PROJECT_NUMBER);
+                    msg = "Device registered, registration ID=" + regid;
+
+
+                    Log.i("GCM", msg);
+
+                    session.storeVal("GCMid", regid);
+
+                } catch (IOException ex) {
+                    msg = "Error :" + ex.getMessage();
+
+                }
+                return msg;
+            }
+
+            @Override
+            protected void onPostExecute(String msg) {
+                Log.d("SplashScren", msg);
+
+
+                if (session.haveNetworkConnection()) {
+
+                    Map<String, String> params = new LinkedHashMap<String, String>();
+
+                    params.put("storeGCM", "true");
+                    params.put("regid", regid);
+                    params.put("username", session.getStrVal("username"));
+
+                    String deviceParams = "Device:" + Build.DEVICE;
+                    deviceParams += " - Display:" + Build.DISPLAY;
+                    deviceParams += " - Manufacturer:" + Build.MANUFACTURER;
+                    deviceParams += " - Model:" + Build.MODEL;
+
+
+                    params.put("deviceinfo", deviceParams);
+
+                    new webService().execute(params);
+                }
+            }
+        }.execute(null, null, null);
+    }
+
+    private class webService extends AsyncTask<Map, Integer, String>
+
+    {
+
+
+        @Override
+        protected String doInBackground(Map... params) {
+
+            return postData(params[0]);
+        }
+
+        @Override
+        protected void onPreExecute() {
+
+
+            //  progress.show();
+
+            super.onPreExecute();
+
+
+        }
+
+        protected void onPostExecute(String response){
+
+
+            JSONObject result = null;
+
+            Log.d("webService", "HTTP Request Result: " + response);
+
+            try {
+
+                result = new JSONObject(response);
+
+                String res = result.getString("result");
+
+                //Log.d("HTTP result filesync",response.toString());
+
+                if (res.trim().equals("success")) {
+
+
+                    //  progress.dismiss();
+
+
+                    //Log.d("DB Sync","Updating Sync status:"+ret);
+                }
+
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+        protected void onProgressUpdate(Integer... progress){
+        }
+
+        public String postData(Map data) {
+
+            String response = "{\"result\":\"failed\"}";
+
+            try {
+
+                response = HttpRequest.post(getResources().getString(R.string.url_district)).form(data).body();
+
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            return response;
+
+
+
+        }
+
+
+    }
+
+
 }
 

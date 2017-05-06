@@ -109,7 +109,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="GRAAM DEEP"
+            android:text="GRAMADEEP"
             android:id="@+id/bhimavaram"
 
             android:layout_below="@+id/camera"

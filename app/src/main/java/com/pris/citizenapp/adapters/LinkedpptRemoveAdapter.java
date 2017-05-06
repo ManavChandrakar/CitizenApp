@@ -112,7 +112,7 @@ public class LinkedpptRemoveAdapter extends RecyclerView.Adapter<LinkedpptRemove
         feedViewHolder.panchayat.setTypeface(head);
         feedViewHolder.citizen.setTypeface(desc);
         feedViewHolder.father.setTypeface(desc);
-        feedViewHolder.imvremove.setImageResource(R.drawable.close);
+        feedViewHolder.imvremove.setImageResource(R.drawable.ic_delete);
 
         feedViewHolder.imvremove.setOnClickListener(new View.OnClickListener() {
             @Override

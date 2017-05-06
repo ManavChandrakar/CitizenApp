@@ -65,7 +65,7 @@ public class GrevienceDetailAdapter extends RecyclerView.Adapter<GrevienceDetail
         holder.reply.setText(ci.reply);
         holder.repname.setText(ci.username);
 
-        String stat="";
+      /*  String stat="";
 
         if(ci.status.equals("1"))
         {
@@ -84,8 +84,8 @@ public class GrevienceDetailAdapter extends RecyclerView.Adapter<GrevienceDetail
         else if(ci.status.equals("4"))
         {
             stat="Rejected";
-        }
-        holder.repstatus.setText("stat");
+        }*/
+        holder.repstatus.setText(ci.status);
 
         long timestand = 1;
         if (ci.timestamp.length() > 0) {
@@ -97,7 +97,6 @@ public class GrevienceDetailAdapter extends RecyclerView.Adapter<GrevienceDetail
 
         holder.repdate.setText(time);
         holder.id.setText(ci.grievance_id);
-
 
         holder.tv1.setTypeface(head);
         holder.tv2.setTypeface(head);

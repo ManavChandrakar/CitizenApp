@@ -19,6 +19,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.StatFs;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -108,7 +109,7 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
     private static final String ALLOWED_CHARACTERS = "0123456789qwertyuiopasdfghjklzxcvbnm";
     TextView loc;
     TextView gpstxt;
-    EditText name,mobile,mail,cat,subcat,details,landmark;
+    EditText myname,mobile,mail,cat,subcat,details,landmark;
 
     ArrayList<String> category;
     HashMap<String,String> mapcategory ;
@@ -137,6 +138,7 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
 
       //  realm = Realm.getDefaultInstance();
       //  setTitle("Grevience");
+        session = new SessionManager(this);
         tv1=(TextView)findViewById(R.id.tv1);
         tv1.setTypeface(head);
         tv2=(TextView)findViewById(R.id.tv2);
@@ -147,8 +149,8 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
         tv4.setTypeface(head);
         tv5=(TextView)findViewById(R.id.tv5);
         tv5.setTypeface(head);
-        name=(EditText)findViewById(R.id.Name);
-        name.setText(session.getStrVal(USER_FULL_NAME));
+        myname=(EditText)findViewById(R.id.name);
+        myname.setText(session.getStrVal(USER_FULL_NAME));
         mail=(EditText)findViewById(R.id.mail);
         mail.setText(session.getStrVal(USER_EMAIL));
         mobile=(EditText)findViewById(R.id.mobile);
@@ -242,7 +244,7 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
          }
      });
 
-        session = new SessionManager(this);
+
         utils = new ImageLoadingUtils(CaptureAndConfirm.this);
 
         progress = new MaterialDialog.Builder(this)
@@ -315,28 +317,36 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
             @Override
             public void onClick(View view) {
 
-                Intent icapture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (getAvailableSpaceInMB() >= 10) {
 
-                File mediaStorageDir = new File(Environment.getExternalStorageDirectory()
-                        + "/citizenapp");
-                if (!mediaStorageDir.exists()) {
-                    if (!mediaStorageDir.mkdirs()) {
+                    Intent icapture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-                        Log.d("Report", "Dirs not made");
+                    File mediaStorageDir = new File(Environment.getExternalStorageDirectory()
+                            + "/citizenapp");
+                    if (!mediaStorageDir.exists()) {
+                        if (!mediaStorageDir.mkdirs()) {
+
+                            Log.d("Report", "Dirs not made");
+                        }
                     }
+                    tag = session.getStrVal("division") + getRandomString(5);
+
+                    File f = new File(Environment.getExternalStorageDirectory() + "/citizenapp", tag + "P.jpg");
+                    file_name = tag + "P.jpg";
+
+                    Log.d("StartCapture", "File: " + Environment.getExternalStorageDirectory() + "/citizenapp" + tag + "P.jpg");
+
+
+                    icapture.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+
+                    mUri = Uri.fromFile(f);
+                    startActivityForResult(icapture, TAKE_PICTURE);
                 }
-                tag = session.getStrVal("division") + getRandomString(5);
 
-                File f = new File(Environment.getExternalStorageDirectory() + "/citizenapp", tag + "P.jpg");
-                file_name = tag + "P.jpg";
+                 else {
+                    Toast.makeText(CaptureAndConfirm.this,"Memory full kindly empty some space",Toast.LENGTH_LONG).show();
+                }
 
-                Log.d("StartCapture", "File: " + Environment.getExternalStorageDirectory() + "/citizenapp" + tag + "P.jpg");
-
-
-                icapture.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
-
-                mUri = Uri.fromFile(f);
-                startActivityForResult(icapture, TAKE_PICTURE);
             }
         });
 
@@ -375,7 +385,7 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
                         params.put("lng", String.valueOf(longitude_v));
                         params.put("landmark", landmark.getText().toString());
                         params.put("panchayat", session.getStrVal("panchayat"));
-                        params.put("name", name.getText().toString());
+                        params.put("name", myname.getText().toString());
                         params.put("mobile", mobile.getText().toString());
                         params.put("email", mail.getText().toString());
                         params.put("aadhar", session.getStrVal("myaadhar"));
@@ -469,7 +479,7 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
         }
 
         if (error == 0) {
-            if (name.getText().toString().trim().length() == 0) {
+            if (myname.getText().toString().trim().length() == 0) {
                 errorTxt = "Full Name Mandatory";
                 error++;
             }
@@ -1104,13 +1114,9 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
 
             return response;
 
-
         }
 
-
     }
-
-
 
 
 /*
@@ -1237,6 +1243,15 @@ public class CaptureAndConfirm extends AppCompatActivity implements OnMapReadyCa
             return response;
 
         }
+    }
+
+    public static long getAvailableSpaceInMB(){
+        final long SIZE_KB = 1024L;
+        final long SIZE_MB = SIZE_KB * SIZE_KB;
+        long availableSpace = -1L;
+        StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
+        availableSpace = (long) stat.getAvailableBlocks() * (long) stat.getBlockSize();
+        return availableSpace/SIZE_MB;
     }
 
 }

@@ -59,7 +59,7 @@ public class RTIAdapter extends RecyclerView.Adapter<RTIAdapter.FeedViewHolder> 
 
         feedViewHolder.gid.setText(ci.rti_id);
         feedViewHolder.reportedby.setText(ci.name);
-        String stat="";
+      /*  String stat="";
 
         if(ci.status.equals("1"))
         {
@@ -78,9 +78,9 @@ public class RTIAdapter extends RecyclerView.Adapter<RTIAdapter.FeedViewHolder> 
         else if(ci.status.equals("4"))
         {
             stat="Rejected";
-        }
+        }*/
 
-        feedViewHolder.status.setText(stat);
+        feedViewHolder.status.setText(ci.status);
 
 
         long timestand = 1;

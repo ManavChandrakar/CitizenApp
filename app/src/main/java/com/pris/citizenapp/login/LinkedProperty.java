@@ -15,6 +15,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.pris.citizenapp.Fragments.LinkProperty;
 import com.pris.citizenapp.R;
+import com.pris.citizenapp.adapters.LinkedpptRemoveAdapter;
 import com.pris.citizenapp.adapters.Linkpptadapter;
 import com.pris.citizenapp.adapters.PropertyDatamodel;
 import com.pris.citizenapp.common.SessionManager;
@@ -48,12 +49,13 @@ public class LinkedProperty extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.member_recycle);
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Linked Properties");
         setSupportActionBar(toolbar);
 
         session = new SessionManager(this);
-        setupAdapter();
 
         progress = new MaterialDialog.Builder(this)
                 .title("Loading...")
@@ -77,12 +79,13 @@ public class LinkedProperty extends AppCompatActivity {
         //setTitle("Property Tax");
 
         //TextView notifications = (TextView) view.findViewById(R.id.notifications);
-        recList = (RecyclerView)findViewById(R.id.recyclerView);
+        recList = (RecyclerView)findViewById(R.id.myrecyclerView);
         recList.setHasFixedSize(true);
 
         llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
+        setupAdapter();
     }
 
     private List<PropertyDatamodel> createList() {
@@ -215,11 +218,11 @@ public class LinkedProperty extends AppCompatActivity {
                 progress.dismiss();
                 if (res.trim().equals("success")) {
 
-                    if (result.has("searchProperty")) {
+                    if (result.has("getLinkedProperties")) {
 
                         session.storeVal("recordsList", result.getString("records"));
 
-                        Linkpptadapter ca = new Linkpptadapter(createList(), LinkedProperty.this);
+                        LinkedpptRemoveAdapter ca = new LinkedpptRemoveAdapter(createList(), LinkedProperty.this);
                         recList.setAdapter(ca);
                         ca.notifyDataSetChanged();
 

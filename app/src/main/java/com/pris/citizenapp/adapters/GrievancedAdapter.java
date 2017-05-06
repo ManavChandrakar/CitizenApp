@@ -61,7 +61,7 @@ public class GrievancedAdapter extends RecyclerView.Adapter<GrievancedAdapter.Fe
         feedViewHolder.category.setText(ci.category);
         feedViewHolder.subcategory.setText(ci.sub_category);
         feedViewHolder.reportedby.setText(ci.name);
-        String stat="";
+       /* String stat="";
 
         if(ci.status.equals("1"))
         {
@@ -80,9 +80,9 @@ public class GrievancedAdapter extends RecyclerView.Adapter<GrievancedAdapter.Fe
         else if(ci.status.equals("4"))
         {
             stat="Rejected";
-        }
+        }*/
 
-        feedViewHolder.status.setText(stat);
+        feedViewHolder.status.setText(ci.status);
 
 
         long timestand = 1;
